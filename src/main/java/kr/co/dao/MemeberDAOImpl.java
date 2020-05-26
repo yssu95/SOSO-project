@@ -54,5 +54,6 @@ public class MemeberDAOImpl implements MemeberDAO {
 		int result = sql.selectOne("memberMapper.idChk", vo);
 		return result;
 	}
+	
 		
 }

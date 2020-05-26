@@ -7,16 +7,26 @@
 	<insert id="register">
 	    INSERT INTO MP_MEMBER(   USERID 
 	   					       , USERPASS 
-	   					       , USERNAME 	)
+	   					       , USERNAME 
+	   					       , PHONE
+	   					       , USERPASS2
+	   					       , GENDER
+	   					       , ADDRESS
+	   					       , EMAIL	)
 	                  VALUES(    #{userId} 
 	                 		   , #{userPass}
-	                 		   , #{userName})
+	                 		   , #{userName}
+	                 		   , #{phone,jdbcType=VARCHAR}
+	                 		   , #{userPass2}
+	                 		   , #{gender}
+	                 		   , #{address}
+	                 		   , #{email})
    
     </insert>
     
     <!-- 로그인 -->
 	<select id="login" resultType="kr.co.vo.MemberVO">
-		SELECT USERID, USERPASS, USERNAME
+		SELECT *
 		  FROM MP_MEMBER
 		 WHERE USERID = #{userId}
 		 <!--  AND USERPASS = #{userPass} -->
