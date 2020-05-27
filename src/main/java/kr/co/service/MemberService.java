@@ -16,4 +16,5 @@ public interface MemberService {
 	
 	public int idChk(MemberVO vo) throws Exception;
 	
+	public int checkEmail(MemberVO vo) throws Exception;
 }

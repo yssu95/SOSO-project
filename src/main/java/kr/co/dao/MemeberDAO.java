@@ -22,4 +22,7 @@ public interface MemeberDAO {
 	// 아이디 중복체크
 	public int idChk(MemberVO vo) throws Exception;
 	
+	// 이메일 중복 검사
+	public int checkEmail(MemberVO vo) throws Exception;
+	
 }

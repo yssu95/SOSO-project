@@ -60,4 +60,10 @@
 		SELECT COUNT(*) FROM MP_MEMBER
 		WHERE USERID = #{userId}
 	</select>
+	
+	<!-- 이메일 중복 검사 -->
+	<select id="check_email" parameterType="String" resultType="int">
+		select count(*) from mp_member where email = #{email}
+	</select>
+	
 </mapper>

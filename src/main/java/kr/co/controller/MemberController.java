@@ -132,4 +132,12 @@ public class MemberController {
 		int result = service.idChk(vo);
 		return result;
 	}
+	
+	// 이메일 중복 체크
+	@ResponseBody
+	@RequestMapping(value="/checkEmail", method = RequestMethod.POST)
+	public int checkEmail(MemberVO vo) throws Exception{
+		int result = service.checkEmail(vo);
+		return result;
+	}
 }

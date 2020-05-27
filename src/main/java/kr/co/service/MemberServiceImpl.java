@@ -51,5 +51,12 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 	
+	// 이메일 중복 체크
+	@Override
+	public int checkEmail(MemberVO vo) throws Exception{
+		int result = dao.checkEmail(vo);
+		return result;
+	}
+	
 	
 }

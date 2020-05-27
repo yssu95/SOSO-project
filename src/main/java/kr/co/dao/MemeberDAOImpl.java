@@ -55,5 +55,11 @@ public class MemeberDAOImpl implements MemeberDAO {
 		return result;
 	}
 	
+	// 이메일 중복 체크
+	@Override
+	public int checkEmail(MemberVO vo) throws Exception{
+		int result = sql.selectOne("memberMapper.checkEmail",vo);
+		return result;
+	}
 		
 }
