@@ -5,23 +5,28 @@
 <mapper namespace="memberMapper">
 	<!-- 회원가입 -->
 	<insert id="register">
-	    INSERT INTO MP_MEMBER(   USERID 
-	   					       , USERPASS 
-	   					       , USERNAME 
-	   					       , PHONE
-	   					       , USERPASS2
-	   					       , GENDER
-	   					       , ADDRESS
-	   					       , EMAIL	)
-	                  VALUES(    #{userId} 
-	                 		   , #{userPass}
-	                 		   , #{userName}
-	                 		   , #{phone,jdbcType=VARCHAR}
-	                 		   , #{userPass2}
-	                 		   , #{gender}
-	                 		   , #{address}
-	                 		   , #{email})
-   
+		INSERT INTO MP_MEMBER(USERID
+							 ,USERPASS
+							 ,USERNAME
+							 ,BIRTH
+							 ,EMAIL
+							 ,PHONE
+							 ,GENDER
+							 ,OADDRESS
+							 ,ADDRESS
+							 ,DETAILADDRESS
+							 		)
+		VALUES(#{userId},
+			   #{userPass},
+			   #{userName,jdbcType=VARCHAR},
+			   #{birth ,jdbcType=VARCHAR},
+			   #{email,jdbcType=VARCHAR},
+			   #{phone,jdbcType=VARCHAR},
+			   #{gender,jdbcType=VARCHAR},
+			   #{oaddress,jdbcType=VARCHAR},
+			   #{address,jdbcType=VARCHAR},
+			   #{detailaddress,jdbcType=VARCHAR}
+			   )
     </insert>
     
     <!-- 로그인 -->

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.vo.MemberVO;
 
 @Repository
-public class MemeberDAOImpl implements MemeberDAO {
+public class MemberDAOImpl implements MemberDAO {
 	
 	@Inject SqlSession sql;
 	// 회원가입
