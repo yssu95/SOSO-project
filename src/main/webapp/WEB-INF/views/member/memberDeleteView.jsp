@@ -61,9 +61,50 @@
 					<label class="control-label" for="userPass">패스워드</label>
 					<input class="form-control" type="password" id="userPass" name="userPass" />
 				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userName">성명</label>
-					<input class="form-control" type="text" id="userName" name="userName" value="${member.userName}" readonly="readonly"/>
+				<div class="form-group">
+					<label for="mem_name">이름</label> <input type="text"
+						class="form-control" id="userName" name="userName"
+						value="${member.userName}" readonly="readonly">
+				</div>
+
+				<div class="form-group">
+					<label for="mem_birth">생년월일</label> <input type="tel"
+						class="form-control" id="birth" name="birth"
+						value="${member.birth}" readonly="readonly">
+				</div>
+
+				<div class="form-group">
+					<label for="mem_email">이메일 주소</label> <input type="email"
+						class="form-control" id="email" name="email" value="${member.email}" readonly="readonly">
+					<div class="eheck_font" id="email_check"></div>
+				</div>
+
+				<div class="form-group">
+					<label for="mem_phone">휴대폰 번호('-'없이 번호만 입력해주세요)</label> <input
+						type="tel" class="form-control" id="phone" name="phone"
+						value="${member.phone}" readonly="readonly">
+					<div class="eheck_font" id="phone_check"></div>
+				</div>
+
+				<div class="form-group">
+					<label for="mem_gender">성별 </label> <input 
+						id="gender" name="gender" value="${member.gender}" readonly="readonly">
+				</div>
+	
+				<div class="form-group">
+					<input class="form-control" style="width: 40%; display: inline;"
+						placeholder="우편번호" name="oaddress" id="oaddress" value="${member.oaddress}"
+						readonly="readonly"/>
+				</div>
+			
+				<div class="form-group">
+					<input class="form-control" style="top: 5px;" placeholder="도로명 주소"
+						name="address" id="address" type="text" value="${member.address}" readonly="readonly" />
+				</div>
+			
+				<div class="form-group">
+					<input class="form-control" value="${member.detailaddress} "
+						readonly="readonly" />
 				</div>
 			</form>
 			<div class="form-group has-feedback">

@@ -19,6 +19,7 @@ td {
 }
 </style>
 <script type="text/javascript">
+	
 //모든 공백 체크 정규식
 var empJ = /\s/g;
 //아이디 정규식
@@ -44,7 +45,7 @@ $("#userId").blur(function() {
 		$('#id_check').text('아이디를 입력하세요.');
 		$('#id_check').css('color', 'red');
 	}
-	else if(idJ.test($('#mem_id').val())!=true){
+	else if(idJ.test($('#userId').val())!=true){
 		$('#id_check').text('4~12자의 영문, 숫자만 사용 가능합니다.');
 		$('#id_check').css('color', 'red');
 	} 
@@ -84,8 +85,15 @@ $("#userId").blur(function() {
 	}//else if
 });//blur
 
-
+$(document).ready(function(){
+	// 취소
+	$(".cencle").on("click", function(){
+		
+		location.href = "/";
+				    
+	})
 $('form').on('submit',function(){
+	
 	var inval_Arr = new Array(8).fill(false);
 		if (idJ.test($('#userId').val())) {
 			inval_Arr[0] = true;
@@ -175,7 +183,7 @@ $('form').on('submit',function(){
 		alert('정보를 다시 확인하세요.')
 	}
 });
-
+});
 
 $('#userId').blur(function() {
 	if (idJ.test($('#userId').val())) {
@@ -427,7 +435,7 @@ function execPostCode() {
 			
 				<div class="form-group text-center">
 					<button type="submit" class="btn btn-primary">회원가입</button>
-					
+					<button class="cencle btn btn-danger" type="button">취소</button>
 				</div>
 			
 			</form>
