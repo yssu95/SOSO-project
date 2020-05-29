@@ -3,6 +3,7 @@ package kr.co.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import kr.co.service.MemberService;
 import kr.co.vo.MemberVO;
 
@@ -91,9 +93,11 @@ public class MemberController {
 	}
 	
 	// 회원정보 수정  post
-	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
+	@RequestMapping(value="/memberUpdateView", method = RequestMethod.POST)
 	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
-		
+		String inputPass = vo.getUserPass();
+		String pwd = pwdEncoder.encode(inputPass);
+		vo.setUserPass(pwd);
 		service.memberUpdate(vo);
 		session.invalidate();
 		return "redirect:/";
@@ -140,4 +144,5 @@ public class MemberController {
 		int result = service.checkEmail(vo);
 		return result;
 	}
+	
 }

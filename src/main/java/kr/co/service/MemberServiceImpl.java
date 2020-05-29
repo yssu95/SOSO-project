@@ -14,9 +14,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public void register(MemberVO vo) throws Exception {
-		
 		dao.register(vo);
-		
 	}
 	
 	@Override

@@ -42,7 +42,12 @@
 	<update id="memberUpdate">
 		UPDATE MP_MEMBER SET 
 		<!-- USERPASS = #{userPass}, -->
-		USERNAME = #{userName}
+		PHONE = #{phone},
+		USERPASS = #{userPass},
+		ADDRESS = #{address},
+		OADDRESS = #{oaddress},
+		DETAILADDRESS = #{detailaddress},
+		EMAIL = #{email}
 		WHERE USERID = #{userId}
 	</update>
 	

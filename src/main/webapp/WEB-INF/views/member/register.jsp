@@ -44,7 +44,7 @@ $("#userId").blur(function() {
 		$('#id_check').text('아이디를 입력하세요.');
 		$('#id_check').css('color', 'red');
 	}
-	else if(idJ.test($('#mem_id').val())!=true){
+	else if(idJ.test($('#userId').val())!=true){
 		$('#id_check').text('4~12자의 영문, 숫자만 사용 가능합니다.');
 		$('#id_check').css('color', 'red');
 	} 

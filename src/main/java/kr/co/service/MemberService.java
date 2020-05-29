@@ -1,5 +1,6 @@
 package kr.co.service;
 
+
 import kr.co.vo.MemberVO;
 
 public interface MemberService {
@@ -17,4 +18,5 @@ public interface MemberService {
 	public int idChk(MemberVO vo) throws Exception;
 	
 	public int checkEmail(MemberVO vo) throws Exception;
+
 }

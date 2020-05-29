@@ -40,9 +40,17 @@
 				<input type="password" id="userPass" name="userPass">
 			</div>
 			<div>
+			<div>
+				<div class="checkbox icheck">
+					<label>
+						<input type="checkbox" name="useCookie">로그인 유지
+					</label>
+				</div>
+			</div>
 				<button type="submit">로그인</button>
 				<button id="registerBtn" type="button">회원가입</button>
 			</div>
+			
 		</c:if>
 		<c:if test="${member != null }">
 			<div>
