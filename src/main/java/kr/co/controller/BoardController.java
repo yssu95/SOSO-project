@@ -30,6 +30,7 @@ import kr.co.vo.SearchCriteria;
 @RequestMapping("/board/*")
 public class BoardController {
 
+	//수인 커밋커밋 테스트
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
 	@Inject
