@@ -48,7 +48,6 @@
 		OADDRESS = #{oaddress},
 		DETAILADDRESS = #{detailaddress},
 		EMAIL = #{email}
-		USERPASS = #{userPass}
 		WHERE USERID = #{userId}
 	</update>
 	
