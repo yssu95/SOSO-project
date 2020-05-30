@@ -42,16 +42,13 @@
 	<update id="memberUpdate">
 		UPDATE MP_MEMBER SET 
 		<!-- USERPASS = #{userPass}, -->
-<<<<<<< HEAD
 		PHONE = #{phone},
 		USERPASS = #{userPass},
 		ADDRESS = #{address},
 		OADDRESS = #{oaddress},
 		DETAILADDRESS = #{detailaddress},
 		EMAIL = #{email}
-=======
 		USERPASS = #{userPass}
->>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 		WHERE USERID = #{userId}
 	</update>
 	
