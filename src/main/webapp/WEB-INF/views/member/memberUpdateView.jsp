@@ -98,6 +98,7 @@ $(document).ready(function(){
 	})
 $('form').on('submit',function(){
 	
+<<<<<<< HEAD
 	var inval_Arr = new Array(4).fill(false);
 
 	// 비밀번호가 같은 경우 && 비밀번호 정규식
@@ -148,6 +149,93 @@ $('form').on('submit',function(){
 
 	if(validAll == true){ // 유효성 모두 통과
 		alert('정보수정이 완료되었습니다.');
+=======
+	var inval_Arr = new Array(8).fill(false);
+		if (idJ.test($('#userId').val())) {
+			inval_Arr[0] = true;
+		} else {
+			inval_Arr[0] = false;
+			alert('아이디를 확인하세요.');
+			return false;
+		}
+
+	// 비밀번호가 같은 경우 && 비밀번호 정규식
+	if (($('#userPass').val() == ($('#userPass2').val()))
+			&& pwJ.test($('#userPass').val())) {
+		inval_Arr[1] = true;
+	} else {
+		inval_Arr[1] = false;
+		alert('비밀번호를 확인하세요.');
+		return false;
+	}
+
+	// 이름 정규식
+	if (nameJ.test($('#userName').val())) {
+		inval_Arr[2] = true;
+	} else {
+		inval_Arr[2] = false;
+		alert('이름을 확인하세요.');
+		return false;
+	}
+
+	// 생년월일 정규식
+	if (birthJ) {
+		console.log(birthJ);
+		inval_Arr[3] = true;
+	} else {
+		inval_Arr[3] = false;
+		alert('생년월일을 확인하세요.');
+		return false;
+	}
+
+	// 이메일 정규식
+	if (mailJ.test($('#email').val())){
+		console.log(phoneJ.test($('#email').val()));
+		inval_Arr[4] = true;
+	} else {
+		inval_Arr[4] = false;
+		alert('이메일을 확인하세요.');
+		return false;
+	}
+
+	// 휴대폰번호 정규식
+	if (phoneJ.test($('#phone').val())) {
+		console.log(phoneJ.test($('#phone').val()));
+		inval_Arr[5] = true;
+	} else {
+		inval_Arr[5] = false;
+		alert('휴대폰 번호를 확인하세요.');
+		return false;
+	}
+
+	//성별 확인
+	if(member.gender[0].checked==false&&member.gender[1].checked==false){
+		inval_Arr[6] = false;
+		alert('성별을 확인하세요.');
+		return false;
+	} else{
+		inval_Arr[6] = true;
+	}
+
+	//주소확인
+	if(address.val() == ''){
+		inval_Arr[7] = false;
+		alert('주소를 확인하세요.');
+		return false;
+	}else
+		inval_Arr[7] = true;
+
+	//전체 유효성 검사
+	var validAll = true;
+	for(var i = 0; i < inval_Arr.length; i++){
+		if(inval_Arr[i] == false){
+			validAll = false;
+		}
+	}
+
+	if(validAll == true){ // 유효성 모두 통과
+		alert('회원가입을 환영합니다.');
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	} else{
 		alert('정보를 다시 확인하세요.')
 	}
@@ -360,6 +448,10 @@ function execPostCode() {
 					<label for="mem_birth">생년월일</label> <input type="tel"
 						class="form-control" id="birth" name="birth"
 						value="${member.birth}" readonly="readonly">
+<<<<<<< HEAD
+=======
+					<div class="eheck_font" id="birth_check"></div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 				</div>
 
 				<div class="form-group">
