@@ -134,7 +134,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
-	// 댓글 작성
+	// 댓글 작성 하는창
 	@RequestMapping(value = "/replyWrite", method = RequestMethod.POST)
 	public String replyWrite(ReplyVO vo, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
 		logger.info("reply Write");
