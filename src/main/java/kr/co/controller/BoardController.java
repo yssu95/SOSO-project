@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,6 @@ import kr.co.vo.SearchCriteria;
 @RequestMapping("/board/*")
 public class BoardController {
 
-	//수인 커밋커밋 테스트
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
 	@Inject
@@ -73,20 +73,26 @@ public class BoardController {
 	}
 
 	// 게시판 조회
-	@RequestMapping(value = "/readView", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception {
-		logger.info("read");
+		@RequestMapping(value = "/readView", method = RequestMethod.GET)
+		public String read(BoardVO boardVO, HttpSession session, @ModelAttribute("scri") SearchCriteria scri, Model model, int bno) throws Exception {
+			logger.info("read");
+			BoardVO bv = service.read(bno);
+			model.addAttribute("mp_board", bv);
+			System.out.println(bv.toString());
+			
+			System.out.println(session.getAttribute("member").toString());
+			model.addAttribute("mp_member", session.getAttribute("member"));
+			
+			model.addAttribute("read", service.read(boardVO.getBno()));
+			model.addAttribute("scri", scri);
 
-		model.addAttribute("read", service.read(boardVO.getBno()));
-		model.addAttribute("scri", scri);
+			List<ReplyVO> replyList = replyService.readReply(boardVO.getBno());
+			model.addAttribute("replyList", replyList);
 
-		List<ReplyVO> replyList = replyService.readReply(boardVO.getBno());
-		model.addAttribute("replyList", replyList);
-
-		List<Map<String, Object>> fileList = service.selectFileList(boardVO.getBno());
-		model.addAttribute("file", fileList);
-		return "board/readView";
-	}
+			List<Map<String, Object>> fileList = service.selectFileList(boardVO.getBno());
+			model.addAttribute("file", fileList);
+			return "board/readView";
+		}
 
 	// 게시판 수정뷰
 	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
