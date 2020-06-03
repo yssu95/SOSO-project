@@ -172,11 +172,13 @@
 
 							<p>${replyList.content}</p>
 							<div>
-								<button type="button" class="replyUpdateBtn btn btn-warning"
-									data-rno="${replyList.rno}">수정</button>
-								<button type="button" class="replyDeleteBtn btn btn-danger"
-									data-rno="${replyList.rno}">삭제</button>
-							</div>
+                        <c:if test="${mp_member.userId eq mp_board.writer && mp_member.userId != null}">
+                              <button type="submit" class="update_btn btn btn-warning">수정</button>
+                        </c:if>
+                        <c:if test="${mp_member.userId eq mp_board.writer && mp_member.userId != null}">
+                           <button type="button" class="delete_btn btn btn-danger">삭제</button>
+                        </c:if>
+                     </div>
 						</li>
 					</c:forEach>
 				</ol>
