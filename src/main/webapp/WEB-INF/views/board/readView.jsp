@@ -127,9 +127,16 @@
 				</div>
 				<hr>
 				<div>
-					<button type="button" class="update_btn btn btn-warning">수정</button>
-					<button type="button" class="delete_btn btn btn-danger">삭제</button>
-					<button type="button" class="list_btn btn btn-primary">목록</button>	
+					<div>
+	<c:if test="${mp_member.userId eq mp_board.writer && mp_member.userId != null}">
+		<button type="submit" class="update_btn btn btn-warning">수정</button>
+	</c:if>
+	<c:if test="${mp_member.userId eq mp_board.writer && mp_member.userId != null}">
+		<button type="button" class="delete_btn btn btn-danger">삭제</button>
+	</c:if>
+		<button type="button" class="list_btn btn btn-primary">목록</button>	
+</div>
+
 				</div>
 				
 				<!-- 댓글 -->

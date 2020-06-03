@@ -1,0 +1,172 @@
+    /* 상단 index 9개*/
+  .indexIcon {
+    background-color: #99A89E;
+    margin-top: -20px;
+    text-align: center;
+  }
+
+  div.col-xs-12.col-sm-4 {
+    padding: 0;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 55px;
+    font-weight: bold;
+  }
+
+  .indexIcon a {
+    display: inline-block;
+    width: 65px;
+  }
+
+  #pink {
+    color: #ECA4A6;
+  }
+
+  /* 상품검색 */
+  #select1, #select2, #select3 {
+    display: inline-block;
+    margin: 50px 0px 10px 10px;
+    font-weight: bold;
+  }
+
+  #select1, #select2 {
+    background-color: #F9D5D3;
+    height: 34px;
+    border-radius: 8%;
+    border: 0px;
+  }
+
+  #select4 {
+    display: inline-block;
+    width: 60%;
+  }
+
+  #select5 {
+    background-color: #F9D5D3;
+    border: 0px;
+  }
+
+  /* 상품목록 */
+  .boxContents {
+    margin-bottom: 20px;
+  }
+
+  .boxContents img {
+    width: 100%;
+  }
+
+  .contents h4 {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+
+  .contents p {
+    display: inline;
+  }
+
+  #red {
+    font-weight: bold;
+    color: red;
+  }
+
+  /* 페이지네이션 */
+  .indexpagination {
+    margin-top: 20px;
+    color: #ECA4A6;
+  }
+  
+  .paginationSize{
+    text-align: center;
+  }
+
+  .pagination>li>a {
+    background-color: #F9D5D3;
+    color: #ECA4A6;
+    border: 1px solid #ECA4A6;
+    font-weight: bold;
+  }
+
+  /* 반응형 */
+  @media (max-width: 767px) {
+
+    /* 상단 index 9개*/
+    .icon {
+      margin: -10px 5%;
+    }
+
+    .indexIcon a {
+      padding-top: 15px;
+    }
+
+    .icon p {
+      font-size: x-small;
+    }
+
+    /* 상품검색 */
+    div.form-group {
+      width: 168px;
+    }
+
+    #select1, #select2, #select3 {
+    display: inline-block;
+    margin: 30px 0px 0px 6px;
+    }
+
+    /* 페이지네이션  */
+    .pagination>li>a {
+      text-align: center;
+      padding: 3px;
+      width: 25px;
+    }
+  }
+
+  @media (min-width:768px) {
+
+     /* 상단 index 9개*/
+    div.col-xs-12.col-sm-4 {
+      width: 32%;
+      margin-left: 6px;
+    }
+
+    .icon {
+      width: 70px;
+      margin-left: 3%;
+    }
+
+    .icon p {
+      font-size: small;
+    }
+
+    /* 상품검색 */
+    #select1, #select2 {
+      width: 75px;
+    }
+  }
+
+  @media (min-width: 992px) {
+
+   /* 상단 index 9개*/
+    div.col-xs-12.col-sm-4 {
+      margin-left: 9px;
+    }
+
+    .icon {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .icon p {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1200px) {
+
+   /* 상단 index 9개*/
+    .icon {
+      margin-left: 8%;
+      margin-right: 5%;
+    }
+  }

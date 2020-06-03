@@ -57,13 +57,20 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	
+	   @RequestMapping(value = "/signin", method = RequestMethod.GET)
+	   public void getSignin() throws Exception {
+	      logger.info("get signin");
+	   }
+	
 	// 로그인 post
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public String login(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
 	
 		session.getAttribute("member");
 		MemberVO login = service.login(vo);
+		System.out.println(vo.toString());
 		boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
 
 		if(login != null && pwdMatch == true) {
@@ -71,6 +78,7 @@ public class MemberController {
 		} else {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/signin";
 		}
 		
 		
@@ -78,7 +86,7 @@ public class MemberController {
 	}
 	
 	// 로그아웃 post
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/signout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
 		
 		session.invalidate();

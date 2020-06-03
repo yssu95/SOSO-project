@@ -85,6 +85,9 @@ $("#userId").blur(function() {
 	}//else if
 });//blur
 
+
+
+//정규식 ~ 배열 합해서 ---
 $(document).ready(function(){
 	// 취소
 	$(".cencle").on("click", function(){
@@ -184,7 +187,11 @@ $('form').on('submit',function(){
 	}
 });
 });
+//여기서 정규식 마무리~ 닫기.
 
+
+
+// 개개인에 따른 정규식 
 $('#userId').blur(function() {
 	if (idJ.test($('#userId').val())) {
 		console.log('true');

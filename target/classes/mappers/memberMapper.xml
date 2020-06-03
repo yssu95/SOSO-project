@@ -30,7 +30,7 @@
     </insert>
     
     <!-- 로그인 -->
-	<select id="login" resultType="kr.co.vo.MemberVO">
+	<select id="signin" resultType="kr.co.vo.MemberVO">
 		SELECT *
 		  FROM MP_MEMBER
 		 WHERE USERID = #{userId}

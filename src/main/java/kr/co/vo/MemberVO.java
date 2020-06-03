@@ -13,6 +13,13 @@ public class MemberVO {
 	private String oaddress;
 	private String address;
 	private String detailaddress;
+	private int verify;
+	public int getVerify() {
+		return verify;
+	}
+	public void setVerify(int verify) {
+		this.verify = verify;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -77,7 +84,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [userId=" + userId + ", userPass=" + userPass + ", userName=" + userName + ", birth=" + birth
 				+ ", email=" + email + ", phone=" + phone + ", gender=" + gender + ", oaddress=" + oaddress
-				+ ", address=" + address + ", detailaddress=" + detailaddress + "]";
+				+ ", address=" + address + ", detailaddress=" + detailaddress + ", verify=" + verify + "]";
 	}
 	
 	

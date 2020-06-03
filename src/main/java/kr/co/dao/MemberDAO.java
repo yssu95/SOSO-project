@@ -24,5 +24,6 @@ public interface MemberDAO {
 	
 	// 이메일 중복 검사
 	public int checkEmail(MemberVO vo) throws Exception;
+
 	
 }
