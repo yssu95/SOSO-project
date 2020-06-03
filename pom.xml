@@ -22,6 +22,21 @@
 		</repository>
 	</repositories>
 	<dependencies>
+	    <dependency>
+          <groupId>net.sf.json-lib</groupId>
+          <artifactId>json-lib</artifactId>
+          <version>2.4</version>
+          
+          <classifier>jdk15</classifier>
+      </dependency>
+      
+      <!--추가-->
+      <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+      <dependency>
+          <groupId>net.coobird</groupId>
+          <artifactId>thumbnailator</artifactId>
+          <version>0.4.8</version>
+      </dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
