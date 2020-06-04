@@ -44,6 +44,8 @@
               onclick="location.href='/shop/cartList'">카트 리스트</button>
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/shop/orderList'">주문 리스트</button>
+                <button type="button" class="btn joinbtn" data-toggle="button"
+              onclick="location.href='/member/memberUpdateView'">정보수정</button>
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/member/signout'">로그아웃</button>
                </c:if>
