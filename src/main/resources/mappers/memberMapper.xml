@@ -66,9 +66,8 @@
 	</select>
 	
 		<!-- 아이디 중복 체크 -->
-	<select id="idChk" resultType="int">
-		SELECT COUNT(*) FROM MP_MEMBER
-		WHERE USERID = #{userId}
+	<select id="checkOverId" parameterType="String" resultType="int">
+		select count(*) from mp_member where userId = #{userId}
 	</select>
 	
 	<!-- 이메일 중복 검사 -->
