@@ -18,6 +18,14 @@
 </li>	
 </c:if>
 
+<c:if test="${member.verify == 0}">
+<li>
+	<a href="">사업자 화면</a>	
+</li>	
+</c:if>
+
+<c:if test="${member.verify == 1}">
+
 	<li>
 		${member.userId}님 환영합니다.
 	</li>
@@ -34,5 +42,5 @@
 		<a href="/member/signout">로그아웃</a>
 	</li>
 </c:if>
-
+</c:if>
 </ul>

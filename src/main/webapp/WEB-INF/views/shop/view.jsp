@@ -96,14 +96,16 @@ function replyList() {
                                 <li><a href="/shop/list?c=100&l=1">상점</a></li>
                                 <li><a href="order_5-1.html">견적</a></li>
                                 <li><a href="review_6-1.html">후기</a></li>
-                                <li><a href="notice_7-1.html">커뮤니티</a></li>
+                                <li><a href="/board/list">커뮤니티</a></li>
                                 <li><a href="introduce_8-1.html">회사소개</a></li>
                             </ul>
                             <form class="navbar-form navbar-right" role="search">
                                 <input type="text" class="form-control headerSearch1">
-                                <button type="submit" class="btn btn-default headerSearch2">검색</button>
+                                <button type="submit" class="btn btn-default headerSearch2"  value="${scri.keyword}">검색</button>
+                                 <c:if test="${member.userId != null}">
                                 <a class="btn btn-default headerSearch3" href="4-1" role="button">
                                     <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                    </c:if>
                             </form>
                         </div>
                     </nav>

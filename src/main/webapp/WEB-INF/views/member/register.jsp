@@ -40,52 +40,65 @@ var birthJ = false;
 
 
 //아이디 중복확인
-$("#userId").blur(function() {
-	if($('#userId').val()==''){
-		$('#id_check').text('아이디를 입력하세요.');
-		$('#id_check').css('color', 'red');
-	}
-	else if(idJ.test($('#userId').val())!=true){
-		$('#id_check').text('4~12자의 영문, 숫자만 사용 가능합니다.');
-		$('#id_check').css('color', 'red');
-	} 
-	else if($('#userId').val()!=''){
-		var mem_id=$('#userId').val();
+	$("#userId").blur(function() {
+		// id = "id_reg" / name = "userId"
+		var userId = $('#userId').val();
 		$.ajax({
-			async : true,
+			url : '${pageContext.request.contextPath}/member/idChk?userId='+ userId,
 			type : 'POST',
-			data : {"userId" : $("#userId").val()},
-			url : 'member/idChk',
-			dateType: 'json',
-			contentType: "application/json; charset=UTF-8",
 			success : function(data) {
-				if(data.cnt > 0){
-					$('#id_check').text('중복된 아이디 입니다.');
-					$('#id_check').css('color', 'red');
-					$("#usercheck").attr("disabled", true);
-				}else{
-					if(idJ.test(userId)){
-						$('#id_check').text('사용가능한 아이디 입니다.');
-						$('#id_check').css('color', 'blue');
-						$("#usercheck").attr("disabled", false);
-					}
-					else if(userId==''){
-						$('#id_check').text('아이디를 입력해주세요.');
-						$('#id_check').css('color', 'red');
+				console.log("1 = 중복o / 0 = 중복x : "+ data);							
+				
+				if (data == 1) {
+						// 1 : 아이디가 중복되는 문구
+						$("#id_check").text("사용중인 아이디입니다 :p");
+						$("#id_check").css("color", "red");
 						$("#usercheck").attr("disabled", true);
+					} else {
+						
+						if(idJ.test(userId)){
+							// 0 : 아이디 길이 / 문자열 검사
+							$("#id_check").text("");
+							$("#usercheck").attr("disabled", false);
+				
+						} else if(userId == ""){
+							
+							$('#id_check').text('아이디를 입력해주세요 :)');
+							$('#id_check').css('color', 'red');
+							$("#usercheck").attr("disabled", true);				
+							
+						} else {
+							
+							$('#id_check').text("5~20자의 영문 소문자, 숫자와 특수기호만 사용 가능합니다.");
+							$('#id_check').css('color', 'red');
+							$("#usercheck").attr("disabled", true);
+						}
+						
 					}
-					else{
-						$('#id_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다.");
-						$('#id_check').css('color', 'red');
-						$("#usercheck").attr("disabled", true);
-					}
+				}, error : function() {
+						console.log("실패");
 				}
-			}
-		});//ajax///
-	}//else if
-});//blur
+			});
+		});
 
+$(document).ready(function(){
+	$('input[type = "checkbox"][name="gender"]').click(function(){
+		if($(this).prop('checked')){
+			$('input[type = "checkbox"][name="gender"]').prop('checked',false);
+			$(this).prop('checked',true);
+		}
+	})
+})
 
+$(document).ready(function(){
+	$('input[type = "checkbox"][name="verify"]').click(function(){
+		if($(this).prop('checked')){
+			$('input[type = "checkbox"][name="verify"]').prop('checked',false);
+			$(this).prop('checked',true);
+		}
+	})
+})
+		
 
 //정규식 ~ 배열 합해서 ---
 $(document).ready(function(){
@@ -171,7 +184,8 @@ $('form').on('submit',function(){
 		return false;
 	}else
 		inval_Arr[7] = true;
-
+	
+	
 	//전체 유효성 검사
 	var validAll = true;
 	for(var i = 0; i < inval_Arr.length; i++){
@@ -366,6 +380,12 @@ function execPostCode() {
 			<form action="/member/register" method="post" role="form"
 				id="usercheck" name="member">
 				<div class="form-group">
+					<label for="mem_usertype">사용자구분</label> 
+					<input type="checkbox" id="verify" name="verify" value="1">일반
+					<input type="checkbox" id="verify" name="verify" value="0">사업자
+				</div>
+				
+				<div class="form-group">
 					<label for="id">아이디</label> <input type="text" class="form-control"
 						id="userId" name="userId" placeholder="ID">
 					<div class="eheck_font" id="id_check"></div>
@@ -415,9 +435,9 @@ function execPostCode() {
 				</div>
 
 				<div class="form-group">
-					<label for="mem_gender">성별 </label> <input type="checkbox"
-						id="gender" name="gender" value="남">남 <input
-						type="checkbox" id="gender" name="gender" value="여">여
+					<label for="mem_gender">성별 </label> 
+					<input type="checkbox" id="gender" name="gender" value="남">남 
+					<input type="checkbox" id="gender" name="gender" value="여">여
 				</div>
 	
 				<div class="form-group">
