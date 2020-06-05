@@ -21,9 +21,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void write(BoardVO boardVO) throws Exception {
 		sqlSession.insert("boardMapper.insert", boardVO);
-
 	}
-
 	// 게시물 목록 조회
 	@Override
 	public List<BoardVO> list(SearchCriteria scri) throws Exception {
