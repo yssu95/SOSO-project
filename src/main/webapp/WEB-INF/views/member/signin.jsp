@@ -19,7 +19,7 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="/resources/images/login/login.jpg" alt="sing up image"></figure>
-                        <a href="/register"><button type="button" class="btn btn-default pull-right joinBtn">
+                        <a href="/member/register"><button type="button" class="btn btn-default pull-right joinBtn">
                                 <span class="glyphicon glyphicon-hand-right"></span> 회원가입</button></a>
                     </div>
                     <div class="signin-form">
