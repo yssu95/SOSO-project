@@ -8,7 +8,7 @@
 	<li><a href="/">홈페이지</a></li>
 	<li><a href="/board/writeView">글 작성</a></li>
 	<li>
-		<c:if test="${member != null}"><a href="/member/logout">로그아웃</a></c:if>
+		<c:if test="${member != null}"><a href="/member/signout">로그아웃</a></c:if>
 		<c:if test="${member == null}"><a href="/member/signin">로그인</a></c:if>
 	</li>
 	<li>
