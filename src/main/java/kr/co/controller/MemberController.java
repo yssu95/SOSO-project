@@ -65,26 +65,39 @@ public class MemberController {
 	   }
 	
 	// 로그인 post
-	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
-		logger.info("post login");
-	
-		session.getAttribute("member");
-		MemberVO login = service.login(vo);
-		System.out.println(vo.toString());
-		boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
-
-		if(login != null && pwdMatch == true) {
-			session.setAttribute("member", login);
-		} else {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
-			return "redirect:/member/signin";
-		}
-		
-		
-		return "redirect:/";
-	}
+	   @RequestMapping(value = "/signin", method = RequestMethod.POST)
+	   public String login(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
+	      logger.info("post login");
+	   
+	      session.getAttribute("member");
+	      System.out.println("vo : " + vo);
+	      MemberVO login = service.login(vo);
+	      if(login!=null) {
+	         boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
+	         if(pwdMatch==true) {
+	            session.setAttribute("member", login);
+	         }
+	      }
+	      else {
+	         session.setAttribute("member", null);  // member 세션에 null 부여  
+	         rttr.addFlashAttribute("msg", false);
+	         return "redirect:/member/signin";
+	      }
+	      
+	      
+//	      boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
+	//
+//	      if(login != null && pwdMatch==true) {
+//	         session.setAttribute("member", login);
+//	      } else {
+//	         session.setAttribute("member", null);  // member 세션에 null 부여  
+//	         rttr.addFlashAttribute("msg", false);
+//	         return "redirect:/member/signin";
+//	      }
+	      
+	      
+	      return "redirect:/";
+	   }
 	
 	// 로그아웃 post
 	@RequestMapping(value = "/signout", method = RequestMethod.GET)
