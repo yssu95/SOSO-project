@@ -1,5 +1,6 @@
 package kr.co.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -86,4 +87,16 @@ public class BoardDAOImpl implements BoardDAO {
 	public void boardHit(int bno) throws Exception {
 		sqlSession.update("boardMapper.boardHit", bno);
 	}
+	
+	// 댓글 숫자
+	@Override
+	public void updateReplyCnt(Integer bno, int amount) throws Exception{
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("bno", bno);
+		paramMap.put("amount", amount);
+		
+		sqlSession.update("boardMapper.updateReplyCnt", paramMap);
+	}
+	
+	
 }

@@ -25,7 +25,8 @@
 		        CONTENT,
 		        WRITER, 
 		        REGDATE,
-		        HIT
+		        HIT,
+		        reply_cnt
 		 FROM ( 
 		        SELECT BNO, 
 		               TITLE, 
@@ -33,9 +34,10 @@
 		               WRITER, 
 		               REGDATE,
 		               HIT, 
+		               reply_cnt,
 		               ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
 		         FROM MP_BOARD
-		         WHERE 1=1 
+		         WHERE 1=1 AND bno>0
 		         	<include refid="search"></include>
 		                       ) MP
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
@@ -74,6 +76,13 @@
 		   SET TITLE    =   #{title},
 		   	   CONTENT  =   #{content}
 		 WHERE BNO = #{bno} 
+	</update>
+	
+	<!-- 댓글 -->
+	<update id="updateReplyCnt">
+		UPDATE mp_board
+		set reply_cnt = reply_cnt + #{amount}
+		where bno = #{bno}
 	</update>
 	
 	<delete id="delete" parameterType="int">
