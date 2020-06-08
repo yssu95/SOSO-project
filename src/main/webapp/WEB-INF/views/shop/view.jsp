@@ -3,131 +3,60 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
+<html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<html>
-<head>
-	<title>kubg</title>
-	
-	<script src="/resources/jquery/jquery-3.3.1.min.js"></script>
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/resources/css/user/shop/store_3.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/user/shop/header-footer.css" type="text/css">
-	
-	
 
-<script>
-function replyList() {
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>store_3-1</title>
+    <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/css/user/shop/store_3-1.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/main/header-footer.css">
 	
-	var gdsNum = ${view.gdsNum};
-	
-	// 비동기식 데이터 요청
-	$.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
-		var str = "";
-		
-		$(data).each(function(){
-			
-			console.log(data);
-			
-			// 날짜 데이터를 보기 쉽게 변환
-			var repDate = new Date(this.repDate);
-			repDate = repDate.toLocaleDateString("ko-US")
-							
-			// HTML코드 조립
-			str += "<li data-repNum='" + this.repNum + "'>" //"<li data-gdsNum='" + this.gdsNum + "'>"
-				 + "<div class='userInfo'>"
-				 + "<span class='userName'>" + this.userName + "</span>"
-				 + "<span class='date'>" + repDate + "</span>"
-				 + "</div>"
-				 + "<div class='replyContent'>" + this.repCon + "</div>"
-				 
-				 + "<c:if test='${member != null}'>"
-				 
-				 + "<div class='replyFooter'>"
-				 + "<button type='button' class='modify' data-repNum='" + this.repNum + "'>M</button>"
-				 + "<button type='button' class='delete' data-repNum='" + this.repNum + "'>D</button>"
-				 + "</div>"
-				 
-				 + "</c:if>"
-				 
-				 + "</li>";											
-		});
-		
-		// 조립한 HTML코드를 추가
-		$("section.replyList ol").html(str);
-	});
-	
-}
-</script>
-		
+	<style>
+	 .cartStock span { display:inline-block; width:100px; margin-right:15px;font-size:22px; } 
+		p.cartStock input { font-size:22px; width:50px; padding:5px; margin:0; border:1px solid #eee; }
+		p.cartStock button { font-size:26px; border:none; background:none; } 
+		p.addToCart { text-align:right; }
+		p.addToCart button { font-size:22px; padding:5px 10px; border:1px solid #eee; background:#eee;}
+	 div.gdsDes { font-size:18px; clear:both; padding-top:30px; }
+	</style>
 </head>
+
 
 <body>
     <div class="container">
         <!-- header -->
         <div class="header">
-            <div class="row">
-                <div class="col-xs-6">
-                    <a href="/"><img src="/resources/images/main/logo.png" alt="logo"></a>
-                </div>
-                <div class="col-xs-6">
-                    <form class="pull-right">
-                        <button type="button" class="btn loginbtn" data-toggle="button"
-                            onclick="location.href='login.html'">로그인</button>
-                        <button type="button" class="btn joinbtn" data-toggle="button"
-                            onclick="location.href='join.html'">회원가입</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <nav class="navbar navbar-inverse">
-                        <!-- mobile -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li><a href="/shop/list?c=100&l=1">상점</a></li>
-                                <li><a href="order_5-1.html">견적</a></li>
-                                <li><a href="review_6-1.html">후기</a></li>
-                                <li><a href="/board/list">커뮤니티</a></li>
-                                <li><a href="introduce_8-1.html">회사소개</a></li>
-                            </ul>
-                            <form class="navbar-form navbar-right" role="search">
-                                <input type="text" class="form-control headerSearch1">
-                                <button type="submit" class="btn btn-default headerSearch2"  value="${scri.keyword}">검색</button>
-                                 <c:if test="${member.userId != null}">
-                                <a class="btn btn-default headerSearch3" href="4-1" role="button">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                    </c:if>
-                            </form>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+            <%@ include file="../include/header2.jsp" %>
         </div><!--header-->
 
         <!-- 상단 상품정보 -->
         <div class="product">
-            <h3>업체명</h3>
-            <h4>상세주소</h4>
+            <h3>${view.comName }</h3>
+            <h4>${view.address },${view.detailaddress }</h4>
             <div class="row">
+                <form role="form" method="post">
+					<input type="hidden" name="gdsNum" id="gdsNum" value="${view.gdsNum}" />
+				</form>
                 <div class="col-sm-6">
                     <img src="${view.gdsImg}">
                 </div>
                 <div class="col-sm-6 productRight">
                     <h2 id="productName">${view.gdsName}</h2>
-                    <h3 id="productPrice"><fmt:formatNumber pattern="###,###,###" value="${view.gdsPrice}" /> 원</h3>
-                    <table class="table table-striped">
+                    <h3 id="productPrice"><fmt:formatNumber pattern="###,###,###" value="${view.gdsPrice}" />원</h3>
+                    <table class="table">
                         <tr>
                             <th>홀타입</th>
                             <td>일반홀</td>
+                        </tr>
+                        <tr>
+                            <th>카테고리</th>
+                            <td>${view.cateName}</td>
                         </tr>
                         <tr>
                             <th>홀 수</th>
@@ -150,8 +79,12 @@ function replyList() {
                             <td>4-5만원</td>
                         </tr>
                         <tr>
+                            <th>재고</th>
+                            <td><fmt:formatNumber pattern="###,###,###" value="${view.gdsStock}" /></td>
+                        </tr>
+                        <tr>
                             <th>인근지하철역</th>
-                            <td>4호선 안산역 2번출구 도보 4분</td>
+                            <td>${view.comSubway}</td>
                         </tr>
                     </table>
                     <c:if test="${view.gdsStock != 0}">
@@ -177,7 +110,10 @@ function replyList() {
 									var gdsNum = $("#gdsNum").val();
 									var cartStock = $(".numBox").val();
 									
-									var data = {gdsNum : gdsNum,cartStock : cartStock};
+									var data = {
+											gdsNum : gdsNum,
+											cartStock : cartStock
+											};
 									
 									$.ajax({
 										url : "/shop/view/addCart",
@@ -217,11 +153,17 @@ function replyList() {
                 </div>
             </div>
         </div><!--product-->
-
+        
+        <!-- 상품 설명 -->
+        <div class="description">
+            <h4>ㆍ상품설명</h4>
+            <h3>#트렌드 #프라이빗 <br> #깔끔한디자인 #고객맞춤형</h3>
+            ${view.gdsDes}
+        </div>
         <!-- 상품 이미지리스트 -->
         <div class="imageList">
             <h4>ㆍ상품정보확인</h4>
-            <img src="/resources/images/weddingdetail/wedding-image1.jpg">
+             <img src="/resources/images/weddingdetail/wedding-image1.jpg">
             <img src="/resources/images/weddingdetail/wedding-image2.jpg">
         </div><!--imageList-->
 
@@ -251,35 +193,58 @@ function replyList() {
         <!-- 별점으로 보기 -->
         <div class="starWeddinghall">
             <h4>ㆍ별점으로 보는 웨딩홀</h4>
-            <img src="별점으로보는웨딩홀.png">
+            <div class="iconPackage">
+            <div class="iconStar">
+                <img src="/resources/images/store3/car.png" alt="시설">
+                <p>시설</p>
+                <p id="pink2">★4.5</p>
+            </div>
+            <div class="iconStar">
+                <img src="/resources/images/store3/food.png" alt="교통">
+                <p>교통</p>
+                <p id="pink2">★4.7</p>
+            </div>
+            <div class="iconStar">
+                <img src="/resources/images/store3/money.png" alt="음식">
+                <p>음식</p>
+                <p id="pink2">★4.5</p>
+            </div>
+            <div class="iconStar">
+                <img src="/resources/images/store3/park.png" alt="가격">
+                <p>가격</p>
+                <p id="pink2">★2.8</p>
+            </div>
+            <div class="iconStar">
+                <img src="/resources/images/store3/serviece.png" alt="서비스">
+                <p>서비스</p>
+                <p id="pink2">★4.5</p>
+            </div>
+        </div>
         </div><!--starWeddinghall-->
 
-        <!-- footer -->
-        <div class="footer">
-            <div class="row">
-                <div class="col-md-6">
-                    <p><b>이용약관 | 개인정보처리방침</b></p>
-                </div>
-                <div class="col-md-6">
-                    <p id="phoneNumber">010-6658-1111</p>
-                    <p id="phoneImage">☎고객상담</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6 col-sm-2">
-                    <img src="logo.png" alt="푸터로고">
-                </div>
-                <div class="col-xs-6 col-sm-10">
-                    <p id="info"><br>소소웨딩|서울시강남구어쩌고170<br>
-                        사업자번호 211-10-4999</p>
-                </div>
-            </div>
-        </div><!--footer-->
+      
+    <!-- footer -->
+    <div class="footer">
+        <div class="row">
+          <div class="col-sm-6">
+            <p id="info">
+              (주)소소웨딩<br>
+              서울시 마포구 백범로 23 | 서울 마포구 신수동 63-14<br>
+              사업자등록번호 120-10-4999<br>
+              Copyright (c) 비트캠프 All rights reserved.
+              </p>
+          </div>
+          <div class="col-sm-6">
+            <p id="phoneNumber">010-6658-1111</p>
+            <p id="phoneImage">☎고객상담</p>
+          </div>
+        </div>
+      </div><!--footer-->
     </div><!--container-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 </body>
-</html>
 
+</html>

@@ -24,9 +24,9 @@
 
 	<div class="container">
 		<!-- header -->
-		 <div class="header">
-        <%@ include file="../include/header2.jsp" %>
-    </div>
+		<div class="header">
+			<%@ include file="../include/header2.jsp" %>
+		</div>
 		<!--header-->
 
 		<!-- 상단 index 9개 -->
@@ -44,41 +44,41 @@
 						<p>드레스</p>
 					</div>
 					<div class="icon">
-						<a href="store_2-3.html"><img src="index2.jpg" alt="헤어/메이크업"
+						<a href="/shop/list?c=103&l=2"><img src="index2.jpg" alt="헤어/메이크업"
 							class="img-responsive img-circle"></a>
 						<p>메이크업</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4">
 					<div class="icon">
-						<a href="store_2-4.html"><img src="index2.jpg" alt="스튜디오"
+						<a href="/shop/list?c=104&l=2"><img src="index2.jpg" alt="스튜디오"
 							class="img-responsive img-circle"></a>
 						<p>스튜디오</p>
 					</div>
 					<div class="icon">
-						<a href="store_2-5.html"><img src="index2.jpg" alt="스냅/DVD"
+						<a href="/shop/list?c=105&l=2"><img src="index2.jpg" alt="스냅/DVD"
 							class="img-responsive img-circle"></a>
 						<p>스냅/DVD</p>
 					</div>
 					<div class="icon">
-						<a href="store_2-6.html"><img src="index2.jpg" alt="예복"
+						<a href="/shop/list?c=106&l=2"><img src="index2.jpg" alt="예복"
 							class="img-responsive img-circle"></a>
 						<p>예복</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4">
 					<div class="icon">
-						<a href="store_2-7.html"><img src="index2.jpg" alt="한복"
+						<a href="/shop/list?c=107&l=2"><img src="index2.jpg" alt="한복"
 							class="img-responsive img-circle"></a>
 						<p>한복</p>
 					</div>
 					<div class="icon">
-						<a href="store_2-8.html"><img src="index2.jpg" alt="부케"
+						<a href="/shop/list?c=108&l=2"><img src="index2.jpg" alt="부케"
 							class="img-responsive img-circle"></a>
 						<p>부케</p>
 					</div>
 					<div class="icon">
-						<a href="store_2-9.html"><img src="index2.jpg" alt="청첩장"
+						<a href="/shop/list?c=109&l=2"><img src="index2.jpg" alt="청첩장"
 							class="img-responsive img-circle"></a>
 						<p>청첩장</p>
 					</div>
@@ -139,8 +139,8 @@
 						<a href="/shop/view?n=${list.gdsNum}"><img
 							src="${list.gdsThumbImg}"></a>
 						<h4>${list.gdsName}</h4>
-						<p id="red">[지역]</p>
-						<p>업체명</p>
+						<p id="red">[${list.comArea }]</p>
+						<p>${list.comName }</p>
 						<h4>${list.gdsPrice}</h4>
 					</div>
 				</div>

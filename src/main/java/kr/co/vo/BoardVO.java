@@ -10,8 +10,16 @@ public class BoardVO {
 	private String writer;
 	private Date regdate;
 	private int hit;
+	private int reply_cnt;
 	
 	
+	
+	public int getReply_cnt() {
+		return reply_cnt;
+	}
+	public void setReply_cnt(int reply_cnt) {
+		this.reply_cnt = reply_cnt;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -49,4 +57,11 @@ public class BoardVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
+	@Override
+	public String toString() {
+		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
+				+ regdate + ", hit=" + hit + ", reply_cnt=" + reply_cnt + "]";
+	}
+	
+	
 }
