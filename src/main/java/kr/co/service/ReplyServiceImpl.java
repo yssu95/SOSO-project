@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.dao.BoardDAO;
 import kr.co.dao.ReplyDAO;
 import kr.co.vo.ReplyVO;
 
@@ -14,6 +15,9 @@ public class ReplyServiceImpl implements ReplyService {
 	
 	@Inject
 	private ReplyDAO dao;
+	
+	@Inject
+	private BoardDAO bdao;
 
 	// 댓글 목록
 	@Override
@@ -25,6 +29,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void writeReply(ReplyVO vo) throws Exception {
 		dao.writdReply(vo);
+		bdao.updateReplyCnt(vo.getBno(), 1);
 	}
 
 	// 댓글 수정
@@ -37,6 +42,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void deleteReply(ReplyVO vo) throws Exception {
 		dao.deleteReply(vo);
+		bdao.updateReplyCnt(vo.getBno(), -1);
 	}
 
 	// 선택된 댓글 조회
