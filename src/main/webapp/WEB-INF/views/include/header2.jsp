@@ -14,7 +14,7 @@
               onclick="location.href='/member/register'">회원가입</button>
               </c:if>
               <c:if test="${member != null}">
-              <c:if test="${member.verify == 9}">
+              <c:if test="${member.verify == 0}">
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/admin/index'">관리자화면</button>
               </c:if>

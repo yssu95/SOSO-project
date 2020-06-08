@@ -1,5 +1,6 @@
 package kr.co.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,8 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.vo.BoardVO;
 import kr.co.vo.SearchCriteria;
@@ -83,7 +86,19 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	// 조회수 기능
 	@Override
-	public void boardHit(int bno) throws Exception {
+	public void boardHit(Integer bno) throws Exception {
 		sqlSession.update("boardMapper.boardHit", bno);
 	}
+	
+	// 댓글 숫자
+	@Override
+	public void updateReplyCnt(Integer bno, int amount) throws Exception{
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("bno", bno);
+		paramMap.put("amount", amount);
+		
+		sqlSession.update("boardMapper.updateReplyCnt", paramMap);
+	}
+	
+	
 }

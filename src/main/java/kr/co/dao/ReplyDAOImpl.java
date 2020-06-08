@@ -44,5 +44,11 @@ public class ReplyDAOImpl implements ReplyDAO{
 		return sql.selectOne("replyMapper.selectReply", rno);
 	}
 
+	// 댓글 갯수 갱신
+	@Override
+	public int getbno(Integer rno) throws Exception{
+		return sql.selectOne("replyMapper.getbno", rno);
+	}
+	
 }
 
