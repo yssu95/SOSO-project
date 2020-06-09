@@ -14,7 +14,7 @@
               onclick="location.href='/member/register'">회원가입</button>
               </c:if>
               <c:if test="${member != null}">
-              <c:if test="${member.verify == 9}">
+              <c:if test="${member.verify == 0}">
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/admin/index'">관리자화면</button>
               </c:if>
@@ -45,6 +45,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
+               <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                 <li><a href="/shop/list?c=100&l=1">상점</a></li>
                 <li><a href="order_5-1.html">견적</a></li>
                 <li><a href="review_6-1.html">후기</a></li>

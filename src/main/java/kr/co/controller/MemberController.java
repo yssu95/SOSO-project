@@ -76,6 +76,10 @@ public class MemberController {
 	         boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
 	         if(pwdMatch==true) {
 	            session.setAttribute("member", login);
+	         } else {
+		         session.setAttribute("member", null);  // member 세션에 null 부여  
+		         rttr.addFlashAttribute("msg", false);
+		         return "redirect:/member/signin";
 	         }
 	      }
 	      else {
