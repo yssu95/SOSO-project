@@ -64,6 +64,7 @@
 
     #carouselSlide2 img {
       width: 100%;
+<<<<<<< HEAD
       height: 280px;
     }
 
@@ -149,6 +150,87 @@
   height: 150px;
 }
 
+=======
+    }
+
+
+    #carouselSlide2 p {
+      font-weight: bold;
+    }
+
+    #carouselSlide2 h4 {
+      margin-top: -10px;
+      color: red;
+    }
+    .btnSlide2{
+      margin: 30px 5px 10px;
+    }
+    #btnSlide2-1,
+    #btnSlide2-2,
+    #btnSlide2-3 {
+      background-color: #F9D5D3;
+      margin-right: 5px;
+      font-weight: bold;
+    }
+
+    #btnSlide2-4 {
+      background-color: #D7DBD1;
+    }
+
+
+  /* 세부카테고리6개 썸네일 */
+  .thumb {
+    background-color: #D7DBD1;   
+    font-weight: bold;    
+    text-align: center;
+    padding: 15px 10px 0;
+    margin-bottom: 50px;
+  }
+ 
+
+  /* 주문현황 */
+  .reserveBtn {
+    background-color: #ECA4A6;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+
+  }
+
+  /* 회원후기 */
+  .reviewBtn {
+    background-color: #99A89E;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+
+  }
+
+  /* 반응형 */
+  @media (max-width: 767px) {
+
+  /* slide1 */
+  .slide1 .item{
+      height: 150px;
+    }
+    ol.carousel-indicators{
+      margin-left: 30px;
+    }
+    .left.carousel-control,
+    .right.carousel-control {
+      width: 50px;
+    }
+   /* slide2 */
+   #carouselSlide2 li {
+        width: 47%;
+        margin-right: 8px;
+      }
+
+/* slide2 */
+#carouselSlide2 li {
+  margin-right: 3px;
+}
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 }
 
 @media (min-width: 992px) {
