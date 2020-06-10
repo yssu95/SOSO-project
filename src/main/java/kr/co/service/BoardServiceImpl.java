@@ -47,15 +47,14 @@ public class BoardServiceImpl implements BoardService {
 	// 게시물 총 갯수
 	@Override
 	public int listCount(SearchCriteria scri) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.listCount(scri);
 	}
 
 	// 게시물 조회
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
-	public BoardVO read(int bno) throws Exception {
-			dao.boardHit(bno);
+	public BoardVO read(Integer bno) throws Exception {
+			 dao.boardHit(bno);
 		return dao.read(bno);
 	}
 

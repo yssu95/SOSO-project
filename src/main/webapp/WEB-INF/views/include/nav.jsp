@@ -30,7 +30,7 @@
 		${member.userId}님 환영합니다.
 	</li>
 	<li>
-	<a href = "/member/memberUpdateView">정보수정</a>
+	<a href = "/member/memberPassChk">정보수정</a>
 	</li>
 	<li>
 		<a href="/shop/cartList">카트 리스트</a>

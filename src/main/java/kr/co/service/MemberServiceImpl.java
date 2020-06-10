@@ -57,4 +57,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	
+	@Override
+	public boolean checkPw(String userId, String userPass) throws Exception {
+		return dao.checkPw(userId, userPass);
+	}
 }

@@ -77,4 +77,10 @@
 		select count(*) from mp_member where email = #{email}
 	</select>
 	
+	<!-- 체크 -->
+	<select id="checkPw" resultType="int">
+		select count(*) from mp_member
+		where userId = #{userId} AND
+		userPass = #{userPass}
+	</select>
 </mapper>

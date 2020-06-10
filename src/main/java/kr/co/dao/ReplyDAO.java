@@ -20,4 +20,7 @@ public interface ReplyDAO {
 	
 	// 선택된 댓글 조회
 	public ReplyVO selectReply(int rno) throws Exception;
+	
+	// 댓글 갯수
+	public int getbno(Integer rno) throws Exception;
 }
