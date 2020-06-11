@@ -39,5 +39,8 @@ public interface BoardDAO {
 	public void updateFile(Map<String, Object> map) throws Exception;
 	
 	// 게시판 조회수
-	public void boardHit(int bno) throws Exception;
+	public void boardHit(Integer bno) throws Exception;
+	
+	// 댓글 count
+	public void updateReplyCnt(Integer bno, int amount) throws Exception;
 }

@@ -8,11 +8,13 @@
 	    <selectKey keyProperty="bno" resultType="int" order="BEFORE">
 	    	SELECT MP_BOARD_SEQ.NEXTVAL FROM DUAL
 	    </selectKey>
-	    INSERT INTO MP_BOARD(    BNO 
+	    INSERT INTO MP_BOARD(    BNO
+	    					   , HEADER 
 	   					       , TITLE 
 	   					       , CONTENT 
 	   					       , WRITER  )
 	                  VALUES(    #{bno}
+	                  		   , #{header}
 	                 		   , #{title}
 	                 		   , #{content}
 	                 		   , #{writer}  )
@@ -20,22 +22,26 @@
     </insert>
    
 	<select id="listPage" resultType="kr.co.vo.BoardVO" parameterType="kr.co.vo.SearchCriteria">
-		SELECT  BNO, 
+		SELECT  BNO,
+				HEADER, 
 		        TITLE, 
 		        CONTENT,
 		        WRITER, 
 		        REGDATE,
-		        HIT
+		        HIT,
+		        reply_cnt
 		 FROM ( 
-		        SELECT BNO, 
+		        SELECT BNO,
+		        	   HEADER, 
 		               TITLE, 
 		               CONTENT, 
 		               WRITER, 
 		               REGDATE,
 		               HIT, 
+		               reply_cnt,
 		               ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
 		         FROM MP_BOARD
-		         WHERE 1=1 
+		         WHERE 1=1 AND bno>0
 		         	<include refid="search"></include>
 		                       ) MP
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
@@ -46,6 +52,7 @@
 		SELECT COUNT(BNO)
 		   FROM MP_BOARD
 		   WHERE 1=1
+		   
 		<include refid="search"></include>	
 		   AND BNO > 0
 	</select>
@@ -61,6 +68,7 @@
 	
 	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVO">
 		SELECT   BNO
+			   , HEADER
 			   , TITLE
 			   , CONTENT
 			   , WRITER
@@ -74,6 +82,13 @@
 		   SET TITLE    =   #{title},
 		   	   CONTENT  =   #{content}
 		 WHERE BNO = #{bno} 
+	</update>
+	
+	<!-- 댓글 -->
+	<update id="updateReplyCnt">
+		UPDATE mp_board
+		set reply_cnt = reply_cnt + #{amount}
+		where bno = #{bno}
 	</update>
 	
 	<delete id="delete" parameterType="int">
@@ -128,9 +143,9 @@
     </update>
     
     <!-- 게시판 조회수 -->
-    <update id="boardHit" parameterType="int">
+    <update id="boardHit" >
     	UPDATE MP_BOARD SET
     	HIT = HIT+1
-    	WHERE BNO = #{bno}
+    	WHERE bno = #{bno}
     </update>
 </mapper>

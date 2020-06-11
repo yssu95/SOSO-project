@@ -102,6 +102,11 @@
                <input type="hidden" id="FILE_NO" name="FILE_NO" value=""> 
             </form>
             
+            
+             <div class="form-group">
+               <label for="header" class="col-sm-2 control-label">말머리</label>
+               <input type="text" id="header" name="header" class="form-control" value="${read.header}" readonly="readonly" />
+            </div>
             <div class="form-group">
                <label for="title" class="col-sm-2 control-label">제목</label>
                <input type="text" id="title" name="title" class="form-control" value="${read.title}" readonly="readonly" />
@@ -152,10 +157,10 @@
                         <p>${replyList.content}</p>
                         <div>
                         <c:if test="${mp_member.userId eq replyList.writer && mp_member.userId != null}">
-                              <button type="submit" class="update_btn btn btn-warning">수정</button>
+                        <button type="button" class="replyUpdateBtn btn btn-warning" data-rno="${replyList.rno}">수정</button>
                         </c:if>
                         <c:if test="${mp_member.userId eq replyList.writer && mp_member.userId != null}">
-                           <button type="button" class="delete_btn btn btn-danger">삭제</button>
+                        <button type="button" class="replyDeleteBtn btn btn-danger" data-rno="${replyList.rno}">삭제</button>
                         </c:if>
                      </div>
                      </li>

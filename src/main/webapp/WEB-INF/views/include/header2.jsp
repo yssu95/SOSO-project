@@ -14,7 +14,7 @@
               onclick="location.href='/member/register'">회원가입</button>
               </c:if>
               <c:if test="${member != null}">
-              <c:if test="${member.verify == 9}">
+              <c:if test="${member.verify == 0}">
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/admin/index'">관리자화면</button>
               </c:if>
@@ -23,7 +23,7 @@
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/shop/orderList'">주문 리스트</button>
                 <button type="button" class="btn joinbtn" data-toggle="button"
-              onclick="location.href='/member/memberUpdateView'">정보수정</button>
+              onclick="location.href='/member/memberPassChkView'">정보수정</button>
                <button type="button" class="btn joinbtn" data-toggle="button"
               onclick="location.href='/member/signout'">로그아웃</button>
                </c:if>
@@ -45,11 +45,12 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
+               <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                 <li><a href="/shop/list?c=100&l=1">상점</a></li>
                 <li><a href="order_5-1.html">견적</a></li>
-                <li><a href="review_6-1.html">후기</a></li>
+                <li><a href="/reviewboard/list">후기</a></li>
                 <li><a href="/board/list">커뮤니티</a></li>
-                <li><a href="introduce_8-1.html">회사소개</a></li>
+                <li><a href="/introduce/introduce">회사소개</a></li>
               </ul>
               <form class="navbar-form navbar-right" role="search">
                 <input type="text" class="form-control headerSearch1">

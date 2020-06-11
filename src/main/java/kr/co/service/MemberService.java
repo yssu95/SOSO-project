@@ -19,4 +19,5 @@ public interface MemberService {
 	
 	public int checkEmail(MemberVO vo) throws Exception;
 
+	public boolean checkPw(String userId, String userPass) throws Exception;
 }
