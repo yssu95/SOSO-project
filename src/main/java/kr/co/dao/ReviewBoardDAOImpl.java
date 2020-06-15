@@ -20,6 +20,7 @@ public class ReviewBoardDAOImpl implements ReviewBoardDAO {
 
 	@Inject
 	private SqlSession sqlSession;
+<<<<<<< HEAD
 	
 	// 게시글 작성
 	@Override
@@ -32,6 +33,14 @@ public class ReviewBoardDAOImpl implements ReviewBoardDAO {
 			// TODO Auto-generated method stub
 			return sqlSession.selectList("reviewboardMapper.homelist");
 		}
+=======
+
+	// 게시글 작성
+	@Override
+	public void write(ReviewBoardVO ReviewboardVO) throws Exception {
+		sqlSession.insert("reviewboardMapper.insert", ReviewboardVO);
+	}
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	// 게시물 목록 조회
 	@Override
 	public List<ReviewBoardVO> list(SearchCriteria scri) throws Exception {

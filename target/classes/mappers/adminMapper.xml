@@ -71,6 +71,7 @@
               gdsPrice = #{gdsPrice}, 
               gdsStock = #{gdsStock},
               gdsDes = #{gdsDes},
+<<<<<<< HEAD
               gdsImg = #{gdsImg},
               gdsThumbImg = #{gdsThumbImg},
               comName = #{comName},
@@ -79,6 +80,17 @@
               oaddress = #{oaddress},
               address = #{address},
               detailaddress = #{detailaddress}
+=======
+              
+              gdsImg = #{gdsImg},
+              gdsThumbImg = #{gdsThumbImg},
+              comName = #{comName},
+              comSubway = #{comSubway},
+              comArea = #{comArea},
+              oaddress = #{oaddress},
+              address = #{address},
+              detailaddress = #{detailaddress},
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
               
           where gdsNum = ${gdsNum}
    </update>
@@ -134,3 +146,7 @@
        
        
 </mapper>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git

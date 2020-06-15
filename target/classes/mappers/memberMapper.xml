@@ -79,10 +79,18 @@
 	</select>
 	
 	<!-- 체크 -->
+<<<<<<< HEAD
    <select id="checkPw" resultType="int">
       select count(*) from mp_member
       where userId = #{userId} AND
       userPass = #{userPass}
    </select>
 	
+=======
+	<select id="checkPw" resultType="int">
+		select count(*) from mp_member
+		where userId = #{userId} AND
+		userPass = #{userPass}
+	</select>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 </mapper>

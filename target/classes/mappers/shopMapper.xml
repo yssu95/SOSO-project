@@ -16,6 +16,7 @@
                    on g.cateCode = c.cateCode            
                where g.cateCode = #{cateCode}
                   or c.cateCodeRef = #{cateCodeRef}
+<<<<<<< HEAD
                   order by gdsDate desc
    </select>
    
@@ -47,6 +48,37 @@
     <choose>
                 <when test="gdsPrice eq 0">
                    and gdsPrice BETWEEN #{gdsPrice} AND 100000000
+=======
+   </select>
+   
+   <!-- 카테고리별 상품 리스트 : 2차 분류 -->
+   <select id="list_2" resultType="kr.co.vo.GoodsViewVO">
+   select
+       g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName,
+       gdsPrice, gdsStock, gdsDes, gdsDate, g.gdsImg, g.gdsThumbImg,
+       g.comName, g.comSubway, g.comArea, g.oaddress, g.address, g.detailaddress
+           from tbl_goods g
+               inner join goods_category c
+                   on g.cateCode = c.cateCode            
+               where g.cateCode = #{cateCode}
+   </select>
+   
+   <!-- 카테고리별 상품 리스트 : 2차 분류 -->
+   <select id="list_3" resultType="kr.co.vo.GoodsViewVO">
+   select
+       g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName,
+       gdsPrice, gdsStock, gdsDes, gdsDate, g.gdsImg, g.gdsThumbImg,
+       g.comName, g.comSubway, g.comArea, g.oaddress, g.address, g.detailaddress
+           from tbl_goods g
+               inner join goods_category c
+                   on g.cateCode = c.cateCode
+                       
+               where g.cateCode = #{cateCode} 
+              and g.comArea = #{comArea}
+    <choose>
+                <when test="gdsPrice eq 0">
+                   and gdsPrice BETWEEN #{gdsPrice} AND 5000000
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
                 </when>
                   <when test="gdsPrice eq 1">
                    and gdsPrice  <![CDATA[<]]> 1000000

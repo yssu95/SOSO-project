@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
+=======
+   pageEncoding="UTF-8"%>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
@@ -111,6 +115,7 @@ margin-right:3px;}
  
 
 <body>
+<<<<<<< HEAD
 	<div class="container">
 		<!-- 회원 header -->
 		<div class="header">
@@ -253,6 +258,150 @@ margin-right:3px;}
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+=======
+   <div class="container">
+      <!-- 회원 header -->
+      <div class="header">
+         <div class="row">
+            <div class="col-xs-6">
+               <a href="/"><img src="/resources/images/main/logo.png"
+                  alt="logo"></a>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12 marginSm">
+               <nav class="navbar navbar-inverse">
+                  <!-- mobile -->
+                  <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                           class="icon-bar"></span>
+                     </button>
+                  </div>
+                  <div class="collapse navbar-collapse"
+                     id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav">
+                        <li><a href="/"><span class="glyphicon glyphicon-home"
+                              aria-hidden="true"></span></a></li>
+                        <li><a href="/shop/list?c=100&l=1">상점</a></li>
+                        <li><a href="order_5-1.html">견적</a></li>
+                        <li><a href="review_6-1.html">후기</a></li>
+                        <li><a href="/board/list">커뮤니티</a></li>
+                        <li><a href="introduce_8-1.html">회사소개</a></li>
+                     </ul>
+                     <form class="navbar-form navbar-right" role="search">
+                        <input type="text" class="form-control headerSearch1">
+                        <button type="submit" class="btn btn-default headerSearch2"
+                           value="${scri.keyword}">검색</button>
+                        <c:if test="${member.userId != null}">
+                           <a class="btn btn-default headerSearch3" href="/shop/cartList"
+                              role="button"> <span
+                              class="glyphicon glyphicon-shopping-cart"></span></a>
+                        </c:if>
+                     </form>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+      <!--header-->
+      <h3> 회원탈퇴 </h3>
+      <form action="/member/memberDelete" method="post" id="delForm">
+
+         <div class="tableTypeWrite">
+            <table summary="온라인 회원탈퇴">
+               <caption></caption>
+               <colgroup>
+                  <col style="width: 175px">
+                  <col>
+               </colgroup>
+               <tbody>
+                  <tr>
+                     <th scope="col">비밀번호</th>
+                     <td>
+                     <input class="form-control" type="hidden" id="userId"
+                        name="userId" value="${member.userId}" readonly="readonly" /> 
+                        <input type="password" id="userPass" name="userPass" class="inputTxt"
+                        title="비밀번호 입력" style="width: 210px;"> 
+</td>
+
+
+                  </tr>
+                  <tr>
+                     <th scope="col">탈퇴사유</th>
+
+                     <td>
+                        <div class="mbOutRsnSel">
+
+                           <label class="inputRadio" for="memberLeave1"><input type="checkbox" id="reason"
+                              name="reason" value="재가입을 위해 "><span>재가입을 위해</span> </label><br> 
+                              <label class="inputRadio" for="memberLeave1"><input
+                              type="checkbox" id="reason" name="reason" value="사이트 이용이 불편함 "><span>사이트
+                           이용이 불편함</span></label><br> 
+                           <label class="inputRadio" for="memberLeave1"><input type="checkbox" id="reason"
+                              name="reason" value="정보가 별로 없음 "><span>정보가 별로 없음</span></label><br>
+                              <label class="inputRadio" for="memberLeave1"> <input
+                              type="checkbox" id="reason" name="reason"
+                              value="서비스 장애가 자주발생 "><span>서비스 장애가 자주발생</span>
+                              </label><br> 
+                              <label class="inputRadio" for="memberLeave1"><input
+                              type="checkbox" id="reason" name="reason" value="개인정보 유출 우려"><span>개인정보
+                           유출 우려</span></label><br> <label class="inputRadio" for="memberLeave1"><input type="checkbox" id="reason" name="reason"
+                              value="기타 "><span>기타</span></label> <br>
+
+                        </div> <textarea id="reason" name="reason" tabindex="1"
+                           title="기타 불편사항을 입력하세요." style="width: 100%; height: 120px;"></textarea>
+                        <p class="letterCount">
+                           <em class="colorGreen" id="charLength">0</em>/100자
+                        </p>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </form>
+      <p class="mbOutAll">
+            회원탈퇴를 하시겠습니까?
+      <div class="btn_center_box">
+
+         <button class="btn_member_cancel cencle" type="button">취소</button>
+         <button class="btn_comfirm_js_btn_leave" type="button" id="submit">탈퇴</button>
+      </div>
+      <div>
+            <c:if test="${msg == false}">
+               비밀번호가 맞지 않습니다.
+            </c:if>
+         </div>
+      
+      </p>
+
+      <!-- footer -->
+      <div class="footer">
+         <div class="row">
+            <div class="col-sm-6">
+               <p id="info">
+                  (주)소소웨딩<br> 서울시 마포구 백범로 23 | 서울 마포구 신수동 63-14<br>
+                  사업자등록번호 120-10-4999<br> Copyright (c) 비트캠프 All rights
+                  reserved.
+               </p>
+            </div>
+            <div class="col-sm-6">
+               <p id="phoneNumber">010-6658-1111</p>
+               <p id="phoneImage">☎고객상담</p>
+            </div>
+         </div>
+      </div>
+      <!--footer-->
+   </div>
+   <!--container-->
+
+   <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 </body>
 

@@ -102,7 +102,11 @@ overflow-x: hidden;
             <legend>비밀번호 입력</legend>
             
             <form  method="post" novalidate="novalidate" action="/member/memberPassChkView" method="post" id="delForm">
+<<<<<<< HEAD
                <input class="form-control" type="hidden" id="userId" name="userId" value="${member.userId}" readonly="readonly"/>		
+=======
+               <input class="form-control" type="hidden" id="userId" name="userId" value="${member.userId}" readonly="readonly"/>      
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
                 <label for="passch" class="titLabel">비밀번호</label>
 
                 <input type="password" id="userPass" name="userPass" >

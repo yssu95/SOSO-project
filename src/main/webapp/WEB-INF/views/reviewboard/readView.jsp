@@ -147,6 +147,7 @@
             <div id="reply">
                <ol class="replyList">
                   <c:forEach items="${replyList}" var="replyList">
+<<<<<<< HEAD
                   
   
                      <li>
@@ -210,6 +211,55 @@
                </div>
                </c:if>
                
+=======
+                     <li>
+                        <p>
+                        작성자 : ${replyList.writer}<br />
+                        작성 날짜 :  <fmt:formatDate value="${replyList.regdate}" pattern="yyyy-MM-dd" />
+                        </p>
+                          
+                        <p>${replyList.content}</p>
+                        <div>
+                        <c:if test="${mp_member.userId eq replyList.writer && mp_member.userId != null}">
+                        <button type="button" class="replyUpdateBtn btn btn-warning" data-rno="${replyList.rno}">수정</button>
+                        </c:if>
+                        <c:if test="${mp_member.userId eq replyList.writer && mp_member.userId != null}">
+                        <button type="button" class="replyDeleteBtn btn btn-danger" data-rno="${replyList.rno}">삭제</button>
+                        </c:if>
+                     </div>
+                     </li>
+                  </c:forEach>   
+               </ol>
+            </div>
+            
+            <form name="replyForm" method="post" class="form-horizontal">
+               <input type="hidden" id="bno" name="bno" value="${read.bno}" />
+               <input type="hidden" id="page" name="page" value="${scri.page}"> 
+               <input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
+               <input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
+               <input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
+            
+               <div class="form-group">
+                  <label for="writer" class="col-sm-2 control-label">댓글 작성자</label>
+                  <div class="col-sm-10">
+                     <input type="text" id="writer" name="writer" class="form-control"
+       value="${member.userId}" readonly />
+                  </div>
+               </div>
+               
+               <div class="form-group">
+                  <label for="content" class="col-sm-2 control-label">댓글 내용</label>
+                  <div class="col-sm-10">
+                     <input type="text" id="content" name="content" class="form-control"/>
+                  </div>
+               </div>
+               
+               <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     <button type="button" class="replyWriteBtn btn btn-success">작성</button>
+                  </div>
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
             </form>
          </section>
          <hr />
