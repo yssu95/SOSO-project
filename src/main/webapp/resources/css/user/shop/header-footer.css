@@ -1,5 +1,5 @@
 body {
-    font-family: "나눔고딕", sans-serif;
+    font-family: "나눔스퀘어", sans-serif;
   }
 
   /* header */
@@ -15,6 +15,10 @@ body {
   }
 
   /* navbar */
+  .marginSm{
+    margin-bottom: -20px;
+  }
+  
   .navbar {
     background-color: #D7DBD1;
     border: #807F89;
@@ -51,6 +55,7 @@ body {
   /* footer */
   .footer {
     background-color: #D7DBD1;
+    padding: 20px 10px;
   }
 
   #phoneNumber {
@@ -77,8 +82,18 @@ body {
       width: 65px;
       padding: 6px;
     }
-    /* footer */
-    #info {
-      margin-left: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .navbar-form .form-control{
+      width: 120px;
     }
+
+  }
+
+  @media (min-width: 992px) {
+    .navbar-form .form-control{
+      width: auto;
+    }
+
   }

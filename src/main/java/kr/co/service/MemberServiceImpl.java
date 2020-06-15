@@ -55,6 +55,11 @@ public class MemberServiceImpl implements MemberService {
 		int result = dao.checkEmail(vo);
 		return result;
 	}
+	//정보수정/패스워드 수정확인
+	@Override
+	   public boolean checkPw(String userId, String userPass) throws Exception {
+	      return dao.checkPw(userId, userPass);
+	   }
 	
 	
 }

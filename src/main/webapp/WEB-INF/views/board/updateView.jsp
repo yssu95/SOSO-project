@@ -97,6 +97,11 @@
 						<tbody>
 							<tr>
 								<td>
+									<label for="header">말머리</label><input type="text" id="header" name="header" value="${update.header}" class="chk" title="말머리" readonly="readonly"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
 									<label for="title">제목</label><input type="text" id="title" name="title" value="${update.title}" class="chk" title="제목을 입력하세요."/>
 								</td>
 							</tr>	
