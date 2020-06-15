@@ -20,8 +20,16 @@ public interface ReviewBoardDAO {
 	
 	// 게시물 조회
 	public ReviewBoardVO read(int bno) throws Exception;
+<<<<<<< HEAD
 	// 홈 에서 불러올 게시물  정보 조회
 	public List<ReviewBoardVO> homelist() throws Exception;
+=======
+<<<<<<< HEAD
+	// 홈 에서 불러올 게시물  정보 조회
+	public List<ReviewBoardVO> homelist() throws Exception;
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	
 	// 게시물 수정
 	public void update(ReviewBoardVO ReviewboardVO) throws Exception;

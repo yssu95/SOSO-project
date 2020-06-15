@@ -48,7 +48,15 @@ filter:none;}
 	<div class="container">
 		<!-- header -->
 		<div class="header">
+<<<<<<< HEAD
 			<%@ include file="../include/header2.jsp"%>
+=======
+<<<<<<< HEAD
+			<%@ include file="../include/header2.jsp"%>
+=======
+			<%@ include file="../include/header2.jsp" %>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 		</div>
 		<!--header-->
 
@@ -72,63 +80,154 @@ filter:none;}
 						<p>드레스</p>
 					</div>
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=103&l=2"><img
 							src="/resources/images/store/FilteHairNmakeup.jpg"
 							onmouseover="this.src='/resources/images/store/hairNmakeup.jpg';"
 							onmouseout="this.src='/resources/images/store/FilteHairNmakeup.jpg';"
 							alt="메이크업" class="img-responsive img-circle imeffect" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=103&l=2"><img
+							src="/resources/images/store/FilteHairNmakeup.jpg"
+							onmouseover="this.src='/resources/images/store/hairNmakeup.jpg';"
+							onmouseout="this.src='/resources/images/store/FilteHairNmakeup.jpg';"
+							alt="메이크업" class="img-responsive img-circle imeffect" /></a>
+=======
+						<a href="/shop/list?c=103&l=2"><img src="index2.jpg" alt="헤어/메이크업"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>메이크업</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4">
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=104&l=2"><img
 							src="/resources/images/store/FilterStudio.jpg"
 							onmouseover="this.src='/resources/images/store/studio.jpg';"
 							onmouseout="this.src='/resources/images/store/FilterStudio.jpg';"
 							alt="웨딩홀" class="img-responsive img-circle imeffect" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=104&l=2"><img
+							src="/resources/images/store/FilterStudio.jpg"
+							onmouseover="this.src='/resources/images/store/studio.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterStudio.jpg';"
+							alt="웨딩홀" class="img-responsive img-circle imeffect" /></a>
+=======
+						<a href="/shop/list?c=104&l=2"><img src="index2.jpg" alt="스튜디오"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>스튜디오</p>
 					</div>
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=105&l=2"><img
 							src="/resources/images/store/FilterSnapNdvd.jpg"
 							onmouseover="this.src='/resources/images/store/snapNdvd.png';"
 							onmouseout="this.src='/resources/images/store/FilterSnapNdvd.jpg';"
 							alt="스냅/DVD" class="img-responsive img-circle imeffect" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=105&l=2"><img
+							src="/resources/images/store/FilterSnapNdvd.jpg"
+							onmouseover="this.src='/resources/images/store/snapNdvd.png';"
+							onmouseout="this.src='/resources/images/store/FilterSnapNdvd.jpg';"
+							alt="스냅/DVD" class="img-responsive img-circle imeffect" /></a>
+=======
+						<a href="/shop/list?c=105&l=2"><img src="index2.jpg" alt="스냅/DVD"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>스냅/DVD</p>
 					</div>
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=106&l=2"><img
 							src="/resources/images/store/FilterDressSuit.jpg"
 							onmouseover="this.src='/resources/images/store/dressSuit.jpg';"
 							onmouseout="this.src='/resources/images/store/FilterDressSuit.jpg';"
 							alt="예복" class="img-responsive img-circle imeffect" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=106&l=2"><img
+							src="/resources/images/store/FilterDressSuit.jpg"
+							onmouseover="this.src='/resources/images/store/dressSuit.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterDressSuit.jpg';"
+							alt="예복" class="img-responsive img-circle imeffect" /></a>
+=======
+						<a href="/shop/list?c=106&l=2"><img src="index2.jpg" alt="예복"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>예복</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4">
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=107&l=2"><img
 							src="/resources/images/store/FilterHanbok.jpg"
 							onmouseover="this.src='/resources/images/store/hanbok.jpg';"
 							onmouseout="this.src='/resources/images/store/FilterHanbok.jpg';"
 							alt="한복" class="img-responsive img-circle" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=107&l=2"><img
+							src="/resources/images/store/FilterHanbok.jpg"
+							onmouseover="this.src='/resources/images/store/hanbok.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterHanbok.jpg';"
+							alt="한복" class="img-responsive img-circle" /></a>
+=======
+						<a href="/shop/list?c=107&l=2"><img src="index2.jpg" alt="한복"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>한복</p>
 					</div>
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=108&l=2"><img
 							src="/resources/images/store/FilterBouquet.jpg"
 							onmouseover="this.src='/resources/images/store/bouquet.jpg';"
 							onmouseout="this.src='/resources/images/store/FilterBouquet.jpg';"
 							alt="부케" class="img-responsive img-circle" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=108&l=2"><img
+							src="/resources/images/store/FilterBouquet.jpg"
+							onmouseover="this.src='/resources/images/store/bouquet.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterBouquet.jpg';"
+							alt="부케" class="img-responsive img-circle" /></a>
+=======
+						<a href="/shop/list?c=108&l=2"><img src="index2.jpg" alt="부케"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>부케</p>
 					</div>
 					<div class="icon">
+<<<<<<< HEAD
 						<a href="/shop/list?c=109&l=2"><img
 							src="/resources/images/store/FilterInvitation.jpg"
 							onmouseover="this.src='/resources/images/store/invitation.jpg';"
 							onmouseout="this.src='/resources/images/store/FilterInvitation.jpg';"
 							alt="청첩장" class="img-responsive img-circle" /></a>
+=======
+<<<<<<< HEAD
+						<a href="/shop/list?c=109&l=2"><img
+							src="/resources/images/store/FilterInvitation.jpg"
+							onmouseover="this.src='/resources/images/store/invitation.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterInvitation.jpg';"
+							alt="청첩장" class="img-responsive img-circle" /></a>
+=======
+						<a href="/shop/list?c=109&l=2"><img src="index2.jpg" alt="청첩장"
+							class="img-responsive img-circle"></a>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 						<p>청첩장</p>
 					</div>
 				</div>
@@ -190,7 +289,15 @@ filter:none;}
 						<h4>${list.gdsName}</h4>
 						<p id="red">[${list.comArea }]</p>
 						<p>${list.comName }</p>
+<<<<<<< HEAD
 						<h4><fmt:formatNumber pattern="###,###,###" value="${list.gdsPrice}" />원</h4>
+=======
+<<<<<<< HEAD
+						<h4><fmt:formatNumber pattern="###,###,###" value="${list.gdsPrice}" />원</h4>
+=======
+						<h4>${list.gdsPrice}</h4>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 					</div>
 				</div>
 				<c:if test="${status.count%4==0}">

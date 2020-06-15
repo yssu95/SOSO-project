@@ -47,10 +47,24 @@
               <ul class="nav navbar-nav">
                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                 <li><a href="/shop/list?c=100&l=1">상점</a></li>
+<<<<<<< HEAD
                 <li><a href="/">견적</a></li>
                 <li><a href="/reviewboard/list">후기</a></li>
                 <li><a href="/board/comunity">커뮤니티</a></li>
                 <li><a href="/notice/notice">회사소개</a></li>
+=======
+<<<<<<< HEAD
+                <li><a href="/">견적</a></li>
+                <li><a href="/reviewboard/list">후기</a></li>
+                <li><a href="/board/comunity">커뮤니티</a></li>
+                <li><a href="/notice/notice">회사소개</a></li>
+=======
+                <li><a href="order_5-1.html">견적</a></li>
+                <li><a href="/reviewboard/list">후기</a></li>
+                <li><a href="/board/list">커뮤니티</a></li>
+                <li><a href="/introduce/introduce">회사소개</a></li>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
               </ul>
               <form class="navbar-form navbar-right" role="search">
                 <input type="text" class="form-control headerSearch1">
