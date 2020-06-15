@@ -50,4 +50,11 @@
        WHERE RNO = #{rno}
    </select>
    
+<!-- 댓글 -->
+   <select id="getbno" resultType="int">
+    select bno
+    from mp_reply
+    where rno = #{rno}
+   </select>
+   
 </mapper>

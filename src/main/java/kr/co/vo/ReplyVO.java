@@ -38,6 +38,7 @@ public class ReplyVO {
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+		
 	}
 	
 	@Override

@@ -5,7 +5,7 @@ div.product{
 }
 .product img{
     width: 100%;
-    height: 450px;
+    height: 520px;
 }
 
 #productName{
@@ -29,6 +29,8 @@ div.product{
     height: 50px;
 }
 #buyBtn{
+    font-size: x-large;
+    letter-spacing: 2px;
     background-color: #ECA4A6;
     color: white;
     width: 200px;
@@ -36,9 +38,22 @@ div.product{
 }
 
 /* 테이블 */
+table{
+    font-size: medium;
+}
+
 th{
+    letter-spacing: 1px;
     width: 100px;
     background-color: #D7DBD1;
+}
+/* 상품설명 */
+.description{
+    margin-top: 30px;
+}
+.description h2{
+    font-weight: bold;
+    color: rgba(0, 0, 255, 0.658);
 }
 
 /* 상품 이미지리스트 */
@@ -47,12 +62,12 @@ th{
 }
 .imageList img{
     width: 100%;
-    height: 650px;
 }
 
 /* 업체 정보 */
 .companyInfo{
     margin-top: 30px;
+    font-size: large;
 }
 .companyBorder{
     background-color: #F9D5D3;
@@ -63,11 +78,27 @@ th{
 .starWeddinghall{
     margin-top: 30px;
     margin-bottom: 50px;
+    font-size: large;
 }
 .starWeddinghall img{
     width: 100%;
 }
 
+.iconPackage {
+    text-align: center;
+}
+.iconStar {
+    width: 100px;
+    display: inline-block;
+
+}
+.iconStar p{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+#pink2 {
+    color: #ECA4A6;
+}
 
 /* 반응형 */
 
@@ -75,13 +106,15 @@ th{
 
 /* 상단 상품정보 */
 .product img{
-    margin-bottom: 10px;
-    height: 300px;
+    width: 100%;
+    height: 470px;
 }
-/* 상품 이미지리스트 */
-.imageList img{
-    height: 300px;
+/* 별점으로 보는 웨딩홀 */
+.iconStar {
+    width: 60px;
+    display: inline-block;
 }
+
 
 
 }

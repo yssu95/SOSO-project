@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-
 import kr.co.vo.CartListVO;
 import kr.co.vo.CartVO;
 import kr.co.vo.GoodsViewVO;
@@ -22,38 +21,37 @@ public class ShopDAOImpl implements ShopDAO {
 
 	@Inject
 	private SqlSession sql;
-	
-	// 매퍼 
+
+	// 매퍼
 	private static String namespace = "shopMapper";
 
 	// 카테고리별 상품 리스트 : 1차 분류
 	@Override
 	public List<GoodsViewVO> list(int cateCode, int cateCodeRef) throws Exception {
-		
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("cateCode", cateCode);
 		map.put("cateCodeRef", cateCodeRef);
-		
+
 		return sql.selectList(namespace + ".list_1", map);
 	}
-	
+
 	// 카테고리별 상품 리스트 : 2차 분류
 	@Override
 	public List<GoodsViewVO> list(int cateCode) throws Exception {
-		
+
 		return sql.selectList(namespace + ".list_2", cateCode);
 	}
 
-	/* 
+	/*
 	 * 메서드명은 list 로 똑같지만, 매개변수가 다르기 떄문에 오버로딩 가능
 	 */
 
 	// 상품 조회
 	@Override
 	public GoodsViewVO goodsView(int gdsNum) throws Exception {
-		return sql.selectOne("adminMapper"
-						+ ".goodsView", gdsNum);
+		return sql.selectOne("adminMapper" + ".goodsView", gdsNum);
 	}
 
 	// 상품 소감(댓글) 작성
@@ -61,13 +59,13 @@ public class ShopDAOImpl implements ShopDAO {
 	public void registReply(ReplyVO reply) throws Exception {
 		sql.insert(namespace + ".registReply", reply);
 	}
-/*
-	// 상품 소감(댓글) 리스트
-	@Override
-	public List<ReplyListVO> replyList(int gdsNum) throws Exception {
-		return sql.selectList(namespace + ".replyList", gdsNum);
-	}
-*/
+
+	/*
+	 * // 상품 소감(댓글) 리스트
+	 * 
+	 * @Override public List<ReplyListVO> replyList(int gdsNum) throws Exception {
+	 * return sql.selectList(namespace + ".replyList", gdsNum); }
+	 */
 	// 상품 소감(댓글) 삭제
 	@Override
 	public void deleteReply(ReplyVO reply) throws Exception {
@@ -103,13 +101,13 @@ public class ShopDAOImpl implements ShopDAO {
 	public void deleteCart(CartVO cart) throws Exception {
 		sql.delete(namespace + ".deleteCart", cart);
 	}
-	
+
 	// 주문 정보
 	@Override
 	public void orderInfo(OrderVO order) throws Exception {
 		sql.insert(namespace + ".orderInfo", order);
 	}
-	
+
 	// 주문 상세 정보
 	@Override
 	public void orderInfo_Details(OrderDetailVO orderDetail) throws Exception {
@@ -134,5 +132,10 @@ public class ShopDAOImpl implements ShopDAO {
 		return sql.selectList(namespace + ".orderView", order);
 	}
 
- 
-}  
+	// 검색별 상품 리스트
+	@Override
+	public List<GoodsViewVO> list(GoodsViewVO vo) throws Exception {
+		return sql.selectList(namespace + ".list_3", vo);
+	}
+
+}

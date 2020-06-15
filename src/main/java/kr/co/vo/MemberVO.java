@@ -14,6 +14,7 @@ public class MemberVO {
 	private String address;
 	private String detailaddress;
 	private int verify;
+	
 	public int getVerify() {
 		return verify;
 	}

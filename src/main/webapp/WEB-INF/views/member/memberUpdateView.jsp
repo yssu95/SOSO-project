@@ -1,23 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SOSO Wedding</title>
+<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+<title>mypage modify</title>
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/main/header-footer.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 부트스트랩 -->
 <!-- daum 도로명주소 찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<style type="text/css">
-td {
-	border: 1px solid #000000;
-	border-collapse: collapse;
-}
-</style>
+
+<script type="text/javascript">
+window.onload = function() {
+	chked();
+	chked2();
+	}
+
+function chked(){
+
+	var chkbox = document.getElementsByName("verify");
+	var chkboxLen = chkbox.length;
+	
+	for(var i=0;i < chkboxLen ; i++){ 
+
+	if(chkbox[i].value == ${member.verify}){
+
+	chkbox[i].checked = true;
+	}
+	}
+	}
+
+	
+function chked2(){
+
+	var chkbox = document.getElementsByName("gender");
+	var chkboxLen = chkbox.length;
+	if (chkboxLen == null || isNaN(chkboxLen)) return;
+	var gender='<c:out value="${member.gender}"/>'
+	for(var i=0;i < chkboxLen ; i++){ 
+			
+			
+	if(chkbox[i].value == gender){
+
+	chkbox[i].checked = true;
+	}
+	}
+	}
+
+	</script>
+
 <script type="text/javascript">
 	
 //모든 공백 체크 정규식
@@ -37,6 +78,8 @@ var birthJ = false;
 	var address = $('#detailaddress');
 		$(document).ready(function() {
 	var address = $('#detailaddress');
+
+
 
 
 //아이디 중복확인
@@ -313,103 +356,537 @@ function execPostCode() {
 }
 
 </script>
+<style>
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	margin: 0px;
+	color: #666;
+}
 
+h2 {
+	font-size: 2em;
+	line-height: 0.5em;
+	color: #ECA4A6;
+	font-family: 'Noto Sans KR', sans-serif;
+	display: inline;
+	/* margin-top: 20px; */
+}
+
+h3 {
+	font-size: 1.5em;
+	line-height: 0.5em;
+	color: #807F89;
+	font-family: 'Noto Sans KR', sans-serif;
+	display: inline;
+}
+
+h5 {
+	font-size: 2.5em;
+	line-height: 0.1em;
+	color: #807F89;
+	font-family: 'Noto Sans KR', sans-serif;
+	display: inline;
+}
+
+a {
+	color: #807F89;
+	text-decoration: none
+} /* a:link a tag 기본 */
+a:hover {
+	color: #F9D5D3;
+} /* 마우스오버 link*/
+a:active {
+	color: #BBC7BA;
+} /* 선택된 link*/
+/* a:visited {color:#000} */
+
+/*d*/
+body {
+	background-color: #fff;
+	margin: 0px;
+}
+
+ul li {
+	list-style: none; /*텍스트가로정렬*/
+	display: inline;
+}
+/* 버튼 기본설정*/
+
+/*div 기본설정*/
+.d-div {
+	border: 0px solid red;
+	position: relative;
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+	background-color: none;
+}
+
+.d-div:after {
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+/*회원구분+가입양식*/
+.sign {
+	border: 0px solid #ECA4A6;
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+
+.sign h5 {
+	font-size: 1.3em;
+	padding: 20px;
+	line-height: 2em;
+}
+
+.hr1 {
+	margin: 20px auto 10px;
+	border: 1px solid #8887A2;
+}
+
+.hr2 {
+	margin: 15px auto 15px;
+}
+
+.sign-text {
+	border: 0px solid red;
+	float: left;
+}
+
+.sign-input {
+	border: 0px solid black;
+	width: 800px;
+	margin: auto;
+	padding: 0px;
+}
+
+.sign-input .c-button {
+	background:#fff;
+	border-color:#ccc
+	
+	
+}
+.sign-input .c-button:hover{
+  border-color: #ECA4A6;
+  color:#fff;
+  background-color: #ECA4A6;
+  outline:0;
+}
+.ia {
+	padding: 8px;
+	margin-right: 15px;
+}
+
+.ib {
+	padding: 6px;
+	width: 55px;
+	height: 31px;
+}
+
+.ib2 {
+	padding: 6px;
+	width: 100px;
+	height: 31px;
+}
+
+.sign select {
+	padding: 6px;
+}
+
+/*체크박스 설정*/
+input[id="cb1"]+label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #666;
+	cursor: pointer;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	margin-right: 8px;
+}
+
+input[id="cb1"]:checked+label {
+	background-color: #666666;
+}
+
+input[id="cb1"] {
+	display: none;
+}
+
+input[id="cb2"]+label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #666;
+	cursor: pointer;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	margin-right: 8px;
+}
+
+input[id="cb2"]:checked+label {
+	background-color: #666666;
+}
+
+input[id="cb2"] {
+	display: none;
+}
+
+input[id="cb3"]+label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #666;
+	cursor: pointer;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	margin-right: 8px;
+}
+
+input[id="cb3"]:checked+label {
+	background-color: #666666;
+}
+
+input[id="cb3"] {
+	display: none;
+}
+
+input[id="cb4"]+label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #666;
+	cursor: pointer;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	margin-right: 8px;
+}
+
+input[id="cb4"]:checked+label {
+	background-color: #666666;
+}
+
+input[id="cb4"] {
+	display: none;
+}
+
+input[id="cb5"]+label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #666;
+	cursor: pointer;
+	position: relative;
+	top: 5px;
+	left: 12px;
+	margin-right: 15px;
+}
+
+input[id="cb5"]:checked+label {
+	background-color: #666666;
+}
+
+input[id="cb5"] {
+	display: none;
+}
+
+/* 취소.수정 버튼 */
+.btn_member_cancel, .btn_comfirm_js_btn_join, .btn_leave {
+	background-color: #ECA4A6;
+	border: none;
+	border-radius:3px 10px;
+	color: white;
+	padding: 8px 15px;
+	text-decoration: none;
+	/* display: inline-block; */
+	font-size: 14px;
+	margin: 5px 2px;
+	cursor: pointer;
+}
+
+.btn_center_box {
+	text-align: right;
+}
+
+/* 회원탈퇴  */
+.memberLeave {
+	margin: 80px 0 0;
+	padding: 40px 0;
+	background: #f3f3f3;
+	text-align: center;
+	color: #222;
+	font-size: 14px;
+}
+
+.btnType7s {
+	height: 32px;
+	line-height: 30px;
+	padding: 0;
+	color: #ECA4A6;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 4px 0 10px;
+	box-sizing: border-box;
+	border:none;
+	background:#f3f3f3;
+}
+#ip-al{
+padding:0px 0px 0px 3px; margin-right:20px;
+}
+#ip-al2{
+padding:0px 0px 0px 3px;
+}
+</style>
 </head>
+
 
 <body>
 
-	<article class="container">
-		<div class="page-header">
-			<div class="col-md-6 col-md-offset-3">
-				<h3>정보수정</h3>
+	<div class="container">
+		<!-- 회원 header -->
+		<div class="header">
+			<div class="row">
+				<div class="col-xs-6">
+					<a href="/"><img src="/resources/images/main/logo.png"
+						alt="logo"></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 marginSm">
+					<nav class="navbar navbar-inverse">
+						<!-- mobile -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1">
+								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="collapse navbar-collapse"
+							id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a href="/"><span class="glyphicon glyphicon-home"
+										aria-hidden="true"></span></a></li>
+								<li><a href="/shop/list?c=100&l=1">상점</a></li>
+								<li><a href="order_5-1.html">견적</a></li>
+								<li><a href="review_6-1.html">후기</a></li>
+								<li><a href="/board/list">커뮤니티</a></li>
+								<li><a href="introduce_8-1.html">회사소개</a></li>
+							</ul>
+							<form class="navbar-form navbar-right" role="search">
+								<input type="text" class="form-control headerSearch1">
+								<button type="submit" class="btn btn-default headerSearch2"
+									value="${scri.keyword}">검색</button>
+								<c:if test="${member.userId != null}">
+									<a class="btn btn-default headerSearch3" href="/shop/cartList"
+										role="button"> <span
+										class="glyphicon glyphicon-shopping-cart"></span></a>
+								</c:if>
+							</form>
+						</div>
+					</nav>
+				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 col-md-offset-3">
-			<form action="/member/memberUpdateView" method="post" role="form"
+		<!--header-->
+<form action="/member/memberUpdateView" method="post" role="form"
 				id="usercheck" name="member">
-				<div class="form-group">
-					<label for="id">아이디</label> <input type="text" class="form-control"
-						id="userId" name="userId" value="${member.userId}" readonly="readonly">
-					<div class="eheck_font" id="id_check"></div>
-				</div>
-
-
-				<div class="form-group">
-					<label for="pw">비밀번호</label> <input type="password"
-						class="form-control" id="userPass" name="userPass"
-						placeholder="PASSWORD">
-					<div class="eheck_font" id="pw_check"></div>
-				</div>
-
-				<div class="form-group">
-					<label for="pw2">비밀번호 확인</label> <input type="password"
-						class="form-control" id="userPass2" name="userPass2"
-						placeholder="Confirm Password">
-					<div class="eheck_font" id="pw2_check"></div>
-
-				</div>
-
-				<div class="form-group">
-					<label for="mem_name">이름</label> <input type="text"
-						class="form-control" id="userName" name="userName"
-						value="${member.userName}" readonly="readonly">
-					<div class="eheck_font" id="name_check"></div>
-				</div>
-
-				<div class="form-group">
-					<label for="mem_birth">생년월일</label> <input type="tel"
-						class="form-control" id="birth" name="birth"
-						value="${member.birth}" readonly="readonly">
-				</div>
-
-				<div class="form-group">
-					<label for="mem_email">이메일 주소</label> <input type="email"
-						class="form-control" id="email" name="email" placeholder="E-mail">
-					<div class="eheck_font" id="email_check"></div>
-				</div>
-
-				<div class="form-group">
-					<label for="mem_phone">휴대폰 번호('-'없이 번호만 입력해주세요)</label> <input
-						type="tel" class="form-control" id="phone" name="phone"
-						placeholder="Phone Number">
-					<div class="eheck_font" id="phone_check"></div>
-				</div>
-
-				<div class="form-group">
-					<label for="mem_gender">성별 </label> <input 
-						id="gender" name="gender" value="${member.gender}" readonly="readonly">
-				</div>
-	
-				<div class="form-group">
-					<input class="form-control" style="width: 40%; display: inline;"
-						placeholder="우편번호" name="oaddress" id="oaddress" type="text"
-						readonly="readonly">
-					<button type="button" class="btn btn-default"
-						onclick="execPostCode();">
-						<i class="fa fa-search"></i> 우편번호 찾기
-					</button>
-				</div>
+		<div class="sign">
+			<h2 style="margin-right: 35px;">
+				<b>회원정보 관리</b>
+			</h2>
+			<hr class="hr1">
 			
-				<div class="form-group">
-					<input class="form-control" style="top: 5px;" placeholder="도로명 주소"
-						name="address" id="address" type="text" readonly="readonly" />
-				</div>
+			<h3 style="margin-right: 30px;">사용자구분</h3>
+			<input type="radio" id="verify" name="verify" value="1" disabled="disabled"><h5 id = "ip-al">일반</h5>
+			<input type="radio" id="verify" name="verify" value="0" disabled="disabled"><h5 id = "ip-al2">사업자</h5>
+			<hr class="hr1">
+			<br>
 			
-				<div class="form-group">
-					<input class="form-control" placeholder="상세주소" name="detailaddress"
-						id="detailaddress" type="text" />
-				</div>
+			<h3>기본정보</h3>
+			<hr class="hr1">
+
+			<div class="sign-text">
+				<h5 style="line-height: 3em;">
+					아이디<span style="color: red;">*</span>
+				</h5>
+			</div>
 			
-				<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary">수정하기</button>
-					<button type="button" class=delete>회원탈퇴</button>
-					<button class="cencle btn btn-danger" type="button">취소</button>
-				</div>
+			<div class="sign-input">
+				<input type="text" class="ia" id="userId" name="userId"
+					value="${member.userId}" readonly="readonly" />
+				<div class="eheck_font" id="id_check"></div>
+				<!-- (영문 소문자/숫자 , 4~16자) -->
+			</div>
+			<hr class="hr2">
+
+			<div class="sign-text">
+				<h5 style="line-height: 2.5em;">
+					비밀번호 변경<span style="color: red;">*</span>
+				</h5>
+			</div>
+			<div class="sign-input">
+				<input type="password" class="ia" id="userPass" name="userPass">
+				<div class="eheck_font" id="pw_check"></div>
+			</div>
+			<hr class="hr2">
+
+			<div class="sign-text">
+				<h5 style="line-height: 2.5em;">
+					비밀번호 확인<span style="color: red;">*</span>
+				</h5>
+			</div>
 			
-			</form>
+			<div class="sign-input">
+				<input type="password" class="ia" id="userPass2" name="userPass2">
+				<div class="eheck_font" id="pw2_check"></div>
+			</div>
+			<hr class="hr2">
+			<!-- 비밀번호 틀릴 경우 alert창 나오게 해주세요 -->
+
+			<div class="sign-text">
+				<h5 style="line-height: 2.5em;">
+					이름<span style="color: red;">*</span>
+				</h5>
+			</div>
+			<div class="sign-input">
+				<input type="text" class="ia" id="userName" name="userName"
+					value="${member.userName}" readonly="readonly" />
+				<div class="eheck_font" id="name_check"></div>
+			</div>
+			<hr class="hr2">
+
+			<div class="sign-text">
+				<h5 style="line-height: 2.5em;">
+					이메일 주소<span style="color: red;">*</span>
+				</h5>
+			</div>
+			<div class="sign-input">
+			<input type="email" class="ia" id="email" name="email" required="required" />
+                                <div class="eheck_font" id="email_check"></div>
+				
+			</div>
+			<hr class="hr2">
+
+			<div class="sign-text">
+				<h5 style="line-height: 8.5em;">
+					주소<span style="color: red;">*</span>
+				</h5>
+			</div>
+			<div class="sign-input">
+				<input class="ib" name="oaddress" id="oaddress" type="text"
+					readonly="readonly" />&nbsp;-&nbsp;
+				<button type="button" class="btn c-button"
+					onclick="execPostCode();">
+					<i class="fa fa-search"></i> 우편번호
+				</button>
+
+
+				<div>
+					<input class="ia" style="margin-top: 10px; width: 300px;"
+						name="address" id="address" type="text" readonly="readonly">기본주소(도로명주소)
+				</div>
+
+				<div>
+					<input class="ia" name="detailaddress"
+						style="margin-top: 10px; width: 300px;" id="detailaddress"
+						type="text">상세주소
+				</div>
+			</div>
+			
+			<hr class="hr2">
+
+			<div class="sign-text">
+				<h5 style="line-height: 1.7em;">
+					휴대전화<span style="color: red;">*</span>
+				</h5>
+			</div>
+			<div class="sign-input">
+				<input type="tel" class="ib2" id="phone" name="phone">
+				<div class="eheck_font" id="phone_check"></div>
+			</div>
+			<hr class="hr2">
+
+			<h3 style="line-height: 2em;">추가정보</h3>
+			<hr class="hr1" style="margin: 10px auto 10px;">
+			<br>
+			
+			<div class="sign-text">
+				<h5>
+					생년월일<span style="color: red;">*</span>
+				</h5>
+			</div>
+			
+			<div class="sign-input">
+				
+				  <input type="tel" class="ib2" id="birth" name="birth"
+                                     value="${member.birth}" readonly="readonly" />
+                                <div class="eheck_font" id="birth_check"></div>
+
+			</div>
+			
+			<hr class="hr2">
+
+			<h5 style="margin-right: 30px;">성별</h5>
+			<input type="radio" id="gender" name="gender" value="남" disabled="disabled"><h5 id = "ip-al">남</h5>
+			<input type="radio" id="gender" name="gender" value="여" disabled="disabled"><h5 id = "ip-al2">여</h5>
+			
+			<hr class="hr1">
+
 		</div>
-	</article>
+
+		<div class="btn_center_box">
+			<button type="button" class="btn_member_cancel cencle">취소</button>
+			<button type="submit" class="btn_comfirm_js_btn_join ">수정</button>
+			
+			<!-- 취소랑 정보수정은 버튼만 만들었습니다 -->
+			<!-- 취소 누르면 홈화면(main_1-2)으로 가게 해주세요 -->
+		</div>
+</form>
+		<div class="memberLeave">
+			<p>
+				소소웨딩 회원 탈퇴를 원하십니까?
+				<button type="button" class="delete btnType7s">회원탈퇴</button>
+
+				<!-- 클릭하면 탈퇴페이지로 이동합니다 -->
+			</p>
+		</div>
+
+		<!-- footer -->
+		<div class="footer">
+			<div class="row">
+				<div class="col-sm-6">
+					<p id="info">
+						(주)소소웨딩<br> 서울시 마포구 백범로 23 | 서울 마포구 신수동 63-14<br>
+						사업자등록번호 120-10-4999<br> Copyright (c) 비트캠프 All rights
+						reserved.
+					</p>
+				</div>
+				<div class="col-sm-6">
+					<p id="phoneNumber">010-6658-1111</p>
+					<p id="phoneImage">☎고객상담</p>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+	</div>
+	<!--container-->
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
