@@ -45,7 +45,7 @@ label[for='gdsDes'] { display:block; }
 input { width:150px; }
 textarea#gdsDes { width:400px; height:180px; }
 
-.oriImg { width:500px; height:auto; }
+.oriImg { width:1500px; height:auto; }
 .thumbImg {}
 
 .gdsDes img { max-width:600px; height:auto; }
