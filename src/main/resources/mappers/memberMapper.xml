@@ -55,6 +55,7 @@
 	
 	<!-- 회원탈퇴 -->
 	<delete id="memberDelete">
+	
 		DELETE FROM MP_MEMBER
 		WHERE USERID = #{userId}
 		 <!--  AND USERPASS = #{userPass} --> 
@@ -78,9 +79,10 @@
 	</select>
 	
 	<!-- 체크 -->
-	<select id="checkPw" resultType="int">
-		select count(*) from mp_member
-		where userId = #{userId} AND
-		userPass = #{userPass}
-	</select>
+   <select id="checkPw" resultType="int">
+      select count(*) from mp_member
+      where userId = #{userId} AND
+      userPass = #{userPass}
+   </select>
+	
 </mapper>

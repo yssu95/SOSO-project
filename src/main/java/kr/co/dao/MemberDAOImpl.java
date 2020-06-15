@@ -64,6 +64,18 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = sql.selectOne("memberMapper.checkEmail",vo);
 		return result;
 	}
+	
+	   // 정보수정전 pw 확인
+	   @Override
+	   public boolean checkPw(String userId , String userPass) {
+	      boolean result = false;
+	      Map<String, String >map = new HashMap<String, String>();
+	      map.put("userId", userId);
+	      map.put("userPass", userPass);
+	      int count = sql.selectOne("memberMapper.checkPw", map);
+	      if(count==1) result = true;
+	      return result;
+	   }
 		
 	// 정보수정전 pw 확인
 	@Override

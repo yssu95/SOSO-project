@@ -17,6 +17,9 @@ public interface ReviewBoardService {
 	// 게시물 목록 조회
 	public List<ReviewBoardVO> list(SearchCriteria scri) throws Exception;
 	
+	// 홈 에서 띄울 게시판정보 목록 조회
+	public List<ReviewBoardVO> homelist() throws Exception;
+	
 	// 게시물 총 갯수
 	public int listCount(SearchCriteria scri) throws Exception;
 	

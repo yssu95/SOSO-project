@@ -317,6 +317,15 @@ make the two columns stack on top of each other instead of next to each other */
 
     <!-- footer -->
     <div class="footer">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+			<%@ include file="../include/footer2.jsp"%>
+		</div>
+<<<<<<< HEAD
+=======
+=======
       <div class="row">
         <div class="col-sm-6">
           <p id="info">
@@ -332,6 +341,8 @@ make the two columns stack on top of each other instead of next to each other */
         </div>
       </div>
     </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
     <!--footer-->
   </div>
   <!--container-->

@@ -6,7 +6,15 @@ div.product{
 }
 .product img{
     width: 100%;
+<<<<<<< HEAD
+    height: 550px;
+=======
+<<<<<<< HEAD
+    height: 550px;
+=======
     height: 450px;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 }
 
 #productName{

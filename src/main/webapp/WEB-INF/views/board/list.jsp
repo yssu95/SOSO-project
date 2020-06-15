@@ -69,6 +69,168 @@ pageEncoding="UTF-8"%>
         </a>
       </div>
     </div>
+<<<<<<< HEAD
+   
+      <!-- 게시판 제목 -->
+      <!-- <li>게시판 Title </li> -->
+
+      <!-- 게시판 목록  -->
+      <div class="test2">
+        <div id="demo">
+          
+          <!-- Responsive table starts here -->
+          <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+          <div class="table-responsive-vertical shadow-z-1">
+            <form role="form" method="get">
+          <!-- Table starts here -->
+          <table id="table" class="table table-hover table-mc-light-blue">
+            <colgroup>
+                <col style="width:7%">
+                <col style="width:15%">
+                <col style="width:*%">
+                <col style="width:10%">
+                <col style="width:15%">
+                <col style="width:10%">
+            </colgroup>
+              <thead>
+                <tr>
+                  <th>No</th>
+                   <th>말머리</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>등록일</th>
+                  <th>조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+               <!-- 주석 -->
+                  <c:forEach items="${list}" var = "list">
+                     <tr>
+                        <td><c:out value="${list.bno}" /></td>
+                        <td><c:out value="${list.header }"/></td>
+                        <td>
+                           <a href="/board/readView?bno=${list.bno}&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword}">
+                           <c:out value="${list.title}" /></a>
+                           <span class="badge bg-teal"><i class="fa fa-comment-o"></i>+${list.reply_cnt}</span>
+                        </td>
+                        <td><c:out value="${list.writer}" /></td>
+                        <td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
+                        <td><c:out value="${list.hit}"/></td>
+                     </tr>
+                  </c:forEach>
+              </tbody>
+            </table>
+            
+         </form>
+         
+          </div>
+          <div id="paging">
+               <ul class="pagination">
+                  <c:if test="${pageMaker.prev}">
+                     <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
+                  </c:if> 
+                  
+                  <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                     <li <c:out value="${pageMaker.cri.page == idx ? 'class=info' : ''}" />>
+                     <a href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+                  </c:forEach>
+                  
+                  <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                     <li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
+                  </c:if> 
+               </ul>
+            </div>
+          <!-- Table Constructor change table classes, you don't need it in your project -->
+        </div>
+        </div>   
+  </div>
+
+ <!-- footer -->
+ <div class="footer">
+			<%@ include file="../include/footer2.jsp"%>
+		</div><!--footer-->
+=======
+<<<<<<< HEAD
+   
+      <!-- 게시판 제목 -->
+      <!-- <li>게시판 Title </li> -->
+
+      <!-- 게시판 목록  -->
+      <div class="test2">
+        <div id="demo">
+          
+          <!-- Responsive table starts here -->
+          <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+          <div class="table-responsive-vertical shadow-z-1">
+            <form role="form" method="get">
+          <!-- Table starts here -->
+          <table id="table" class="table table-hover table-mc-light-blue">
+            <colgroup>
+                <col style="width:7%">
+                <col style="width:15%">
+                <col style="width:*%">
+                <col style="width:10%">
+                <col style="width:15%">
+                <col style="width:10%">
+            </colgroup>
+              <thead>
+                <tr>
+                  <th>No</th>
+                   <th>말머리</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>등록일</th>
+                  <th>조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+               <!-- 주석 -->
+                  <c:forEach items="${list}" var = "list">
+                     <tr>
+                        <td><c:out value="${list.bno}" /></td>
+                        <td><c:out value="${list.header }"/></td>
+                        <td>
+                           <a href="/board/readView?bno=${list.bno}&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword}">
+                           <c:out value="${list.title}" /></a>
+                           <span class="badge bg-teal"><i class="fa fa-comment-o"></i>+${list.reply_cnt}</span>
+                        </td>
+                        <td><c:out value="${list.writer}" /></td>
+                        <td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
+                        <td><c:out value="${list.hit}"/></td>
+                     </tr>
+                  </c:forEach>
+              </tbody>
+            </table>
+            
+         </form>
+         
+          </div>
+          <div id="paging">
+               <ul class="pagination">
+                  <c:if test="${pageMaker.prev}">
+                     <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
+                  </c:if> 
+                  
+                  <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                     <li <c:out value="${pageMaker.cri.page == idx ? 'class=info' : ''}" />>
+                     <a href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+                  </c:forEach>
+                  
+                  <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                     <li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
+                  </c:if> 
+               </ul>
+            </div>
+          <!-- Table Constructor change table classes, you don't need it in your project -->
+        </div>
+        </div>   
+  </div>
+
+ <!-- footer -->
+ <div class="footer">
+			<%@ include file="../include/footer2.jsp"%>
+		</div><!--footer-->
+=======
     <ul>
       <!-- 게시판 제목 -->
       <!-- <li>게시판 Title </li> -->
@@ -161,6 +323,8 @@ pageEncoding="UTF-8"%>
     </div>
   </div>
 </div><!--footer-->
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 </div><!--container-->
 
 

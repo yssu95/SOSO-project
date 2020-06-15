@@ -79,9 +79,8 @@ public class ReviewBoardController {
       logger.info("read");
       ReviewBoardVO bv = service.read(bno);
       model.addAttribute("review_board", bv);
-      System.out.println(bv.toString());
       
-      System.out.println(session.getAttribute("member").toString());
+      
       model.addAttribute("mp_member", session.getAttribute("member"));
       
       model.addAttribute("read", service.read(boardVO.getBno()));
@@ -231,5 +230,7 @@ public class ReviewBoardController {
       response.getOutputStream().close();
 
    }
+   
+   
    
 }

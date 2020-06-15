@@ -131,6 +131,20 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	   // 회원정보수정전 비밀번호확인 get
+	   @RequestMapping(value="/memberPassChkView", method = RequestMethod.GET)
+	   public String memberPassChkView() throws Exception{
+	      return "member/memberPassChkView";
+	   }
+	   
+	   // 회원정보수정전 비밀번호확인  post
+	   @RequestMapping(value="/memberPassChkView", method = RequestMethod.POST)
+	   public String memberPassChkView(MemberVO vo, HttpSession session) throws Exception{
+	      String inputPass = vo.getUserPass();
+	      String pwd = pwdEncoder.encode(inputPass);
+	      vo.setUserPass(pwd);
+	      return "redirect:/";
+	   }
 	
 	// 회원 탈퇴 get
 	@RequestMapping(value="/memberDeleteView", method = RequestMethod.GET)

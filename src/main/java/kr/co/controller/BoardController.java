@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.co.service.BoardService;
 import kr.co.service.ReplyService;
 import kr.co.vo.BoardVO;
+import kr.co.vo.OrderVO;
 import kr.co.vo.PageMaker;
 import kr.co.vo.ReplyVO;
 import kr.co.vo.SearchCriteria;
@@ -45,6 +46,13 @@ public class BoardController {
       logger.info("writeView");
 
    }
+   
+// 보드메인
+   @RequestMapping(value = "/comunity", method = RequestMethod.GET)
+   public void board() throws Exception {
+      logger.info("comunity");
+
+   }
 
    // 게시판 글 작성
    @RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -61,7 +69,7 @@ public class BoardController {
       logger.info("list");
 
       model.addAttribute("list", service.list(scri));
-
+     
       PageMaker pageMaker = new PageMaker();
       pageMaker.setCri(scri);
       pageMaker.setTotalCount(service.listCount(scri));
@@ -71,15 +79,16 @@ public class BoardController {
       return "board/list";
 
    }
+   
+
 
    @RequestMapping(value = "/readView", method = RequestMethod.GET)
    public String read(BoardVO boardVO, HttpSession session, @ModelAttribute("scri") SearchCriteria scri, Model model, int bno) throws Exception {
       logger.info("read");
-      BoardVO bv = service.read(bno);
+      BoardVO bv = service.boardhit(bno);
       model.addAttribute("mp_board", bv);
-      System.out.println(bv.toString());
       
-      System.out.println(session.getAttribute("member").toString());
+     
       model.addAttribute("mp_member", session.getAttribute("member"));
       
       model.addAttribute("read", service.read(boardVO.getBno()));

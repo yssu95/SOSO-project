@@ -71,7 +71,6 @@
               gdsPrice = #{gdsPrice}, 
               gdsStock = #{gdsStock},
               gdsDes = #{gdsDes},
-              
               gdsImg = #{gdsImg},
               gdsThumbImg = #{gdsThumbImg},
               comName = #{comName},
@@ -79,7 +78,7 @@
               comArea = #{comArea},
               oaddress = #{oaddress},
               address = #{address},
-              detailaddress = #{detailaddress},
+              detailaddress = #{detailaddress}
               
           where gdsNum = ${gdsNum}
    </update>
@@ -135,4 +134,3 @@
        
        
 </mapper>
-

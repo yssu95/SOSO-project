@@ -290,8 +290,18 @@ textarea#gdsDes {
                </div>
 
                <div class="inputArea">
+<<<<<<< HEAD
+                  <label for="gdsImg">이미지</label> 
+                  <input type="file" multiple="multiple" id="gdsImg" name="file" />
+=======
+<<<<<<< HEAD
+                  <label for="gdsImg">이미지</label> 
+                  <input type="file" multiple="multiple" id="gdsImg" name="file" />
+=======
                   <label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
                      name="file" />
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
                   <div class="select_img">
                      <img src="" />
                   </div>
@@ -308,7 +318,15 @@ textarea#gdsDes {
                                                 .attr(
                                                       "src",
                                                       data.target.result)
+<<<<<<< HEAD
+                                                .width(1000);
+=======
+<<<<<<< HEAD
+                                                .width(1000);
+=======
                                                 .width(500);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
                                        }
                                        reader
                                              .readAsDataURL(this.files[0]);

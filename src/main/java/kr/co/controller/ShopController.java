@@ -42,6 +42,7 @@ public class ShopController {
 
 		List<GoodsViewVO> list = null;
 		list = service.list(cateCode, level);
+		System.out.println(list.toString());
 
 		model.addAttribute("list", list);
 
@@ -54,6 +55,7 @@ public class ShopController {
 
 		GoodsViewVO view = service.goodsView(gdsNum);
 		model.addAttribute("view", view);
+		
 
 		/*
 		 * List<ReplyListVO> reply = service.replyList(gdsNum);

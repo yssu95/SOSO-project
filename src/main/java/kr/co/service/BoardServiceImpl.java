@@ -44,6 +44,8 @@ public class BoardServiceImpl implements BoardService {
 		return dao.list(scri);
 	}
 	
+
+	
 	// 게시물 총 갯수
 	@Override
 	public int listCount(SearchCriteria scri) throws Exception {
@@ -54,7 +56,7 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
-			 dao.boardHit(bno);
+			
 		return dao.read(bno);
 	}
 
@@ -95,6 +97,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
 		return dao.selectFileInfo(map);
+	}
+	
+	@Transactional(isolation = Isolation.READ_COMMITTED)
+	@Override
+	public BoardVO boardhit(Integer bno) throws Exception {
+		// TODO Auto-generated method stub
+		return  dao.boardHit(bno);
 	}
 
 	

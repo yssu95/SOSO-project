@@ -16,6 +16,7 @@
                    on g.cateCode = c.cateCode            
                where g.cateCode = #{cateCode}
                   or c.cateCodeRef = #{cateCodeRef}
+                  order by gdsDate desc
    </select>
    
    <!-- 카테고리별 상품 리스트 : 2차 분류 -->
@@ -28,9 +29,10 @@
                inner join goods_category c
                    on g.cateCode = c.cateCode            
                where g.cateCode = #{cateCode}
+               order by gdsDate desc
    </select>
    
-   <!-- 카테고리별 상품 리스트 : 2차 분류 -->
+   <!-- 상품검색 -->
    <select id="list_3" resultType="kr.co.vo.GoodsViewVO">
    select
        g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName,
@@ -44,7 +46,7 @@
               and g.comArea = #{comArea}
     <choose>
                 <when test="gdsPrice eq 0">
-                   and gdsPrice BETWEEN #{gdsPrice} AND 5000000
+                   and gdsPrice BETWEEN #{gdsPrice} AND 100000000
                 </when>
                   <when test="gdsPrice eq 1">
                    and gdsPrice  <![CDATA[<]]> 1000000

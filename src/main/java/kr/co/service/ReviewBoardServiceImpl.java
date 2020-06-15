@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.dao.ReviewBoardDAO;
 import kr.co.util.ReviewFileUtils;
+import kr.co.vo.BoardVO;
 import kr.co.vo.ReviewBoardVO;
 import kr.co.vo.SearchCriteria;
 
@@ -37,11 +38,21 @@ public class ReviewBoardServiceImpl implements ReviewBoardService {
 			dao.insertFile(list.get(i));
 		}
 	}
-
 	// 게시물 목록 조회
 	@Override
-	public List<ReviewBoardVO> list(SearchCriteria scri) throws Exception {
-		return dao.list(scri);
+	public List<ReviewBoardVO> homelist() throws Exception {
+		return dao.homelist();
+		}
+	// 게시물 목록 조회
+	@Override
+	public List<ReviewBoardVO> list(SearchCriteria scri)  {
+		try {
+			return dao.list(scri);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	// 게시물 총 갯수

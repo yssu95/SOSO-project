@@ -1,3 +1,9 @@
+ /* 상품목록 */
+  .boxContents {
+    font-family: 'Do Hyeon', sans-serif;
+    margin-bottom: 20px;
+  }
+
     /* 상단 index 9개*/
   .indexIcon {
     background-color: #99A89E;

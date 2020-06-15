@@ -183,6 +183,7 @@
                   </div>
                </div>
                
+                <c:if test="${member.userId != null }">
                <div class="form-group">
                   <label for="content" class="col-sm-2 control-label">댓글 내용</label>
                   <div class="col-sm-10">
@@ -195,6 +196,15 @@
                      <button type="button" class="replyWriteBtn btn btn-success">작성</button>
                   </div>
                </div>
+               </c:if>
+                <c:if test="${member.userId == null }">
+               <div class="form-group">
+                  <label for="content" class="col-sm-2 control-label">댓글 내용</label>
+                  <div class="col-sm-10">
+                     <input type="text" id="content" name="content" class="form-control" readonly placeholder="로그인 후 이용해주세요"/>
+                  </div>
+               </div>
+               </c:if>
             </form>
          </section>
          <hr />

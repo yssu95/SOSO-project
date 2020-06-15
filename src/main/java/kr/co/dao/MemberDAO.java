@@ -26,6 +26,5 @@ public interface MemberDAO {
 	public int checkEmail(MemberVO vo) throws Exception;
 
 	// 정보수정전 pw 확인
-	public boolean checkPw(String userId, String userPass)throws Exception;
-	
+	   public boolean checkPw(String userId, String userPass)throws Exception;
 }
