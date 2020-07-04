@@ -30,6 +30,7 @@
               WRITER, 
               REGDATE,
               HIT,
+<<<<<<< HEAD
               reply_cnt,
               TNF
        FROM ( 
@@ -103,6 +104,68 @@
    <update id="updateReplyCnt">
       UPDATE QNA_BOARD
       set reply_cnt = reply_cnt + #{amount}, TNF='답변완료'
+=======
+              reply_cnt
+       FROM ( 
+              SELECT BNO,
+                    HEADER, 
+                     TITLE, 
+                     CONTENT, 
+                     WRITER, 
+                     REGDATE,
+                     HIT, 
+                     reply_cnt,
+                     ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
+               FROM QNA_BOARD
+               WHERE 1=1 AND bno>0
+                  <include refid="search"></include>
+                             ) MP
+      WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+      ORDER BY BNO DESC
+   </select>
+   
+   <select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">
+      SELECT COUNT(BNO)
+         FROM QNA_BOARD
+         WHERE 1=1
+         
+      <include refid="search"></include>   
+         AND BNO > 0
+   </select>
+   
+   <sql id="search">
+      <if test="searchType != null">
+         <if test="searchType == 't'.toString()">AND TITLE LIKE '%' || #{keyword} || '%'</if>
+         <if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
+         <if test="searchType == 'w'.toString()">AND WRITER LIKE '%' || #{keyword} || '%'</if>
+         <if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
+      </if>
+   </sql>
+   
+   <select id="read" parameterType="int" resultType="kr.co.vo.QnaBoardVO">
+      SELECT   BNO
+            , HEADER
+            , TITLE
+            , CONTENT
+            , WRITER
+            , REGDATE
+        FROM QNA_BOARD
+       WHERE BNO = #{bno}
+   </select>
+   
+   <update id="update" parameterType="kr.co.vo.QnaBoardVO">
+      UPDATE QNA_BOARD
+         SET TITLE    =   #{title},
+               HEADER   =   #{header},
+               CONTENT  =   #{content}
+       WHERE BNO = #{bno} 
+   </update>
+   
+   <!-- 댓글 -->
+   <update id="updateReplyCnt">
+      UPDATE QNA_BOARD
+      set reply_cnt = reply_cnt + #{amount}
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
       where bno = #{bno}
    </update>
    

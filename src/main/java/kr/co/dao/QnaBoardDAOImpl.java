@@ -82,6 +82,7 @@ public class QnaBoardDAOImpl implements QnaBoardDAO {
 		sqlSession.update("qnaboardMapper.updateFile", map);
 	}
 	
+<<<<<<< HEAD
 
 	
 	// 댓글 숫자
@@ -97,6 +98,22 @@ public class QnaBoardDAOImpl implements QnaBoardDAO {
 	public QnaBoardVO boardHit(int bno) throws Exception {
 		sqlSession.update("qnaboardMapper.boardHit", bno);
 		return null;
+=======
+	// 조회수 기능
+	@Override
+	public void boardHit(Integer bno) throws Exception {
+		sqlSession.update("qnaboardMapper.boardHit", bno);
+	}
+	
+	// 댓글 숫자
+	@Override
+	public void updateReplyCnt(Integer bno, int amount) throws Exception{
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("bno", bno);
+		paramMap.put("amount", amount);
+		
+		sqlSession.update("qnaboardMapper.updateReplyCnt", paramMap);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	}
 	
 	

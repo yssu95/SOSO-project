@@ -18,6 +18,10 @@ public interface MemberService {
 	public int idChk(MemberVO vo) throws Exception;
 	
 	public int checkEmail(MemberVO vo) throws Exception;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	public boolean checkPw(String userId, String userPass) throws Exception;
 
 }

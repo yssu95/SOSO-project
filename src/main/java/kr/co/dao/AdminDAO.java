@@ -24,6 +24,7 @@ public interface AdminDAO {
    // 상품등록
    public void register2(GoodsVO vo) throws Exception;
    
+<<<<<<< HEAD
    //웨딩홀상세내용
    public void weddingdetail(WeddinghalldetailVO weddingvo) throws Exception;
    
@@ -41,7 +42,30 @@ public interface AdminDAO {
    
  //예복 상세내용
    public void hanbokdetail(HanbokdetailVO hanbokvo) throws Exception;
+=======
+   // 상품목록
+   public List<GoodsViewVO> goodslist() throws Exception;
+    
+   // 상품조회  + 카테고리 조인
+   public GoodsViewVO goodsView(int gdsNum) throws Exception;
+   
+   // 상품 수정
+   public void goodsModify(GoodsVO vo) throws Exception;
+   
+   // 상품 삭제
+   public void goodsDelete(int gdsNum) throws Exception;
+   
+   // 주문 목록
+   public List<OrderVO> orderList() throws Exception;
+   
+   // 특정 주문 목록
+   public List<OrderListVO> orderView(OrderVO order) throws Exception;
+   
+   // 배송 상태
+   public void delivery(OrderVO order) throws Exception;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
  //한복 상세내용
    public void mendressdetail(MendressdetailVO mendressvo) throws Exception;
 
@@ -162,4 +186,14 @@ public interface AdminDAO {
 
    
    
+=======
+   // 상품 수량 조절
+   public void changeStock(GoodsVO goods) throws Exception;
+   /*
+   // 모든 소감(댓글)
+   public List<ReplyListVO> allReply() throws Exception;
+   */
+   // 소감(댓글) 삭제
+   public void deleteReply(int repNum) throws Exception;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 } 

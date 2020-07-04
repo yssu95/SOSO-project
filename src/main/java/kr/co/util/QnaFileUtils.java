@@ -12,6 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.vo.QnaBoardVO;
+<<<<<<< HEAD
+=======
+import kr.co.vo.ReviewBoardVO;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 @Component("QnaFileUtils")
 public class QnaFileUtils {

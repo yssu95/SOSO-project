@@ -29,6 +29,7 @@ public class AdminDAOImpl implements AdminDAO {
    
    // 매퍼 
    private static String namespace = "adminMapper";
+<<<<<<< HEAD
 
    // 카테고리
    @Override
@@ -63,14 +64,24 @@ public class AdminDAOImpl implements AdminDAO {
 	   sql.insert(namespace + ".handmdetail", handmvo);
    	
    }
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
  //스튜디오 상세내용
    @Override
    public void studiodetail(StudiodetailVO studiovo) throws Exception {
 	   sql.insert(namespace + ".studiodetail", studiovo);
    	
+=======
+   // 카테고리
+   @Override
+   public List<CategoryVO> category() throws Exception {
+      return sql.selectList("adminMapper.category");
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
    //스냅샷/dvd 상세내용
    @Override
    public void snapDvdDetail(SnapshotDvddetailVO snapshotdvdvo) throws Exception {
@@ -83,15 +94,29 @@ public class AdminDAOImpl implements AdminDAO {
    public void mendressdetail(MendressdetailVO mendressvo) throws Exception {
 	   sql.insert(namespace + ".mendressdetail", mendressvo);
    	
+=======
+   // 상품등록
+   @Override
+   public void register2(GoodsVO vo) throws Exception {
+      sql.insert(namespace + ".register2", vo);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
  //한복 상세내용
    @Override
    public void hanbokdetail(HanbokdetailVO hanbokvo) throws Exception {
 	   sql.insert(namespace + ".hanbokdetail", hanbokvo);
    	
+=======
+   // 상품목록
+   @Override
+   public List<GoodsViewVO> goodslist() throws Exception {
+      return sql.selectList(namespace + ".goodslist");
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
    //부케 상세내용
    @Override
    public void boquetdetail(BouquetdetailVO bouquetvo) throws Exception {
@@ -104,14 +129,28 @@ public class AdminDAOImpl implements AdminDAO {
    public void invitdetail(InvitationdetailVO invitvo) throws Exception {
 	   sql.insert(namespace + ".invitdetail", invitvo);
    	
+=======
+   // 상품조회 + 카테고리 조인
+   @Override
+   public GoodsViewVO goodsView(int gdsNum) throws Exception {
+      return sql.selectOne(namespace + ".goodsView", gdsNum);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
    // 상품목록
    @Override
    public List<GoodsViewVO> goodslist() throws Exception {
       return sql.selectList(namespace + ".goodslist");
+=======
+   // 상품 수정
+   @Override
+   public void goodsModify(GoodsVO vo) throws Exception {
+      sql.update(namespace + ".goodsModify", vo);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
    // 상품조회 + 카테고리 조인
    @Override
    public GoodsViewVO goodsView(int gdsNum) throws Exception {
@@ -134,8 +173,21 @@ public class AdminDAOImpl implements AdminDAO {
    @Override
    public HairMakeupdetailVO hairmakeupView(int gdsNum) throws Exception {
 	   return sql.selectOne(namespace + ".hairmakeupView", gdsNum);
+=======
+   // 상품 삭제
+   @Override
+   public void goodsDelete(int gdsNum) throws Exception {
+      sql.delete(namespace + ".goodsDelete", gdsNum);
+   }
+   
+   // 주문 목록
+   @Override
+   public List<OrderVO> orderList() throws Exception {
+      return sql.selectList(namespace + ".orderList");
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
    //스튜디오상세내용조회
    @Override
    public StudiodetailVO studioView(int gdsNum) throws Exception {
@@ -170,8 +222,15 @@ public class AdminDAOImpl implements AdminDAO {
    @Override
    public InvitationdetailVO invitView(int gdsNum) throws Exception {
 	   return sql.selectOne(namespace + ".invitView", gdsNum);
+=======
+   // 특정 주문 목록 
+   @Override
+   public List<OrderListVO> orderView(OrderVO order) throws Exception {
+      return sql.selectList(namespace + ".orderView", order);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    }
 
+<<<<<<< HEAD
    // 상품 수정
    @Override
    public void goodsModify(GoodsVO vo) throws Exception {
@@ -313,6 +372,8 @@ public class AdminDAOImpl implements AdminDAO {
       return sql.selectList(namespace + ".orderView", order);
    }
 
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    // 배송 상태
    @Override
    public void delivery(OrderVO order) throws Exception {
@@ -336,6 +397,7 @@ public class AdminDAOImpl implements AdminDAO {
    public void deleteReply(int repNum) throws Exception {
       sql.delete(namespace + ".deleteReply", repNum);
    }
+<<<<<<< HEAD
 
 
 
@@ -348,4 +410,6 @@ public class AdminDAOImpl implements AdminDAO {
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 } 

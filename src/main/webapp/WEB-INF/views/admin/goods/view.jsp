@@ -105,9 +105,14 @@ footer#footer ul li {
 	margin: 10px 0;
 }
 
+<<<<<<< HEAD
 select {
 	width: 100px;
 }
+=======
+.oriImg { width:1500px; height:auto; }
+.thumbImg {}
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 label {
 	display: inline-block;

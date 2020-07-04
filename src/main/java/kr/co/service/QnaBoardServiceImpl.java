@@ -58,6 +58,7 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public QnaBoardVO read(Integer bno) throws Exception {
+<<<<<<< HEAD
 		return dao.read(bno);
 	}
 
@@ -106,6 +107,52 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 		// TODO Auto-generated method stub
 		return  dao.boardHit(bno);
 	}
+=======
+			 dao.boardHit(bno);
+		return dao.read(bno);
+	}
+
+	// 게시물 수정
+	@Override
+	public void update(QnaBoardVO boardVO, 
+						String[] files, 
+						String[] fileNames,
+						MultipartHttpServletRequest mpRequest) throws Exception {
+					
+		dao.update(boardVO);
+		
+		List<Map<String, Object>> list = QnaFileUtils.parseUpdateFileInfo(boardVO, files, fileNames, mpRequest);
+		Map<String, Object> tempMap = null;
+		int size = list.size();
+		for(int i = 0; i<size; i++) {
+			tempMap = list.get(i);
+			if(tempMap.get("IS_NEW").equals("Y")) {
+				dao.insertFile(tempMap);
+			}else {
+				dao.updateFile(tempMap);
+			}
+		}
+	}
+
+	// 게시물 삭제
+	@Override
+	public void delete(int bno) throws Exception {
+		dao.delete(bno);
+	}
+	
+	// 첨부파일 조회
+	@Override
+	public List<Map<String, Object>> selectFileList(int bno) throws Exception {
+		return dao.selectFileList(bno);
+	}
+	
+	@Override
+	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
+		return dao.selectFileInfo(map);
+	}
+
+	
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	
 }
 

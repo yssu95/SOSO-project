@@ -8,7 +8,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
 import kr.co.vo.BouquetdetailVO;
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 import kr.co.vo.CartListVO;
 import kr.co.vo.CartVO;
 import kr.co.vo.DressdetailVO;
@@ -60,6 +63,7 @@ public class ShopDAOImpl implements ShopDAO {
 	// 상품 조회
 	@Override
 	public GoodsViewVO goodsView(int gdsNum) throws Exception {
+<<<<<<< HEAD
 		return sql.selectOne("companyMapper" + ".goodsView", gdsNum);
 	}
 	// 웨딩홀 조회
@@ -106,6 +110,9 @@ public class ShopDAOImpl implements ShopDAO {
 	@Override
 	public InvitationdetailVO invitView(int gdsNum) throws Exception {
 		return sql.selectOne("companyMapper" + ".invitView", gdsNum);
+=======
+		return sql.selectOne("adminMapper" + ".goodsView", gdsNum);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	}
 
 	// 상품 소감(댓글) 작성
@@ -201,6 +208,7 @@ public class ShopDAOImpl implements ShopDAO {
 	public List<GoodsViewVO> list(GoodsViewVO vo) throws Exception {
 		return sql.selectList(namespace + ".list_3", vo);
 	}
+<<<<<<< HEAD
 	
 	//주문 완료
 	@Override
@@ -216,5 +224,7 @@ public class ShopDAOImpl implements ShopDAO {
 	
 
 	
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 }

@@ -86,9 +86,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F9D5D3', end
 
 /* 여기까지 효과 */
 
+<<<<<<< HEAD
 body{
  	background-color: white;
    display: flex;
+=======
+body {
+    background-color: white;
+    padding: 1px;
+    font-family: Arial;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
     flex-direction: column;
     justify-content: center;
     align-items: center;

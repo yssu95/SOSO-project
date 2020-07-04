@@ -25,6 +25,7 @@ import kr.co.service.ReplyService;
 import kr.co.service.dminService;
 import kr.co.vo.AdminNoticesVO;
 import kr.co.vo.BoardVO;
+import kr.co.vo.OrderVO;
 import kr.co.vo.PageMaker;
 import kr.co.vo.ReplyVO;
 import kr.co.vo.SearchCriteria;
@@ -57,6 +58,7 @@ public class BoardController {
       logger.info("comunity");
 
    }
+<<<<<<< HEAD
 // 공지사항 목록
 	@RequestMapping(value = "/notices", method = RequestMethod.GET)
 	public String notices(Model model,@ModelAttribute("scri") SearchCriteria scri) throws Exception {
@@ -82,6 +84,8 @@ public class BoardController {
 				model.addAttribute("file_1", fileList);
 				dminService.noticesHit(no);
 			}
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
    // 게시판 글 작성
    @RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -130,7 +134,16 @@ public class BoardController {
    @RequestMapping(value = "/readView", method = RequestMethod.GET)
    public String read(BoardVO boardVO, HttpSession session, @ModelAttribute("scri") SearchCriteria scri, Model model, int bno) throws Exception {
       logger.info("read");
+<<<<<<< HEAD
+=======
+      BoardVO bv = service.boardhit(bno);
+      model.addAttribute("mp_board", bv);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
       
+<<<<<<< HEAD
+=======
+     
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
       model.addAttribute("mp_member", session.getAttribute("member"));
       BoardVO bv = service.read(boardVO.getBno());
       model.addAttribute("mp_board", bv);

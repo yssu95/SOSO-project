@@ -87,12 +87,20 @@ list-type-ulli, .socials {
   }
 
 /* 체크박스 */
+<<<<<<< HEAD
 input[type=radio] {
   width: 20px;
 }
 .vt_align{
 	vertical-align:top;
 }
+=======
+input[type=checkbox] {
+  width: 30px;
+  height: 15px;
+}
+
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 /* 우편번호 찾기 */
 #oaddress {
   width: 40%;

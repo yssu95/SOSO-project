@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import kr.co.dao.QnaBoardDAO;
 import kr.co.dao.QnaReplyDAO;
 import kr.co.vo.QnaReplyVO;
+<<<<<<< HEAD
+=======
+import kr.co.vo.ReviewReplyVO;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 @Service
 public class QnaReplyServiceImpl implements	QnaReplyService {

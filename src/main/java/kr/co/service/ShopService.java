@@ -1,8 +1,16 @@
 package kr.co.service;
+<<<<<<< HEAD
 
 import java.util.List;
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
 import kr.co.vo.BouquetdetailVO;
+=======
+import java.util.List;
+
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 import kr.co.vo.CartListVO;
 import kr.co.vo.CartVO;
 import kr.co.vo.DressdetailVO;
@@ -25,6 +33,7 @@ public interface ShopService {
 
 	// 상품조회
 	public GoodsViewVO goodsView(int gdsNum) throws Exception;
+<<<<<<< HEAD
 	// 웨딩홀 상세조회
 	public WeddinghalldetailVO weddingView(int gdsNum) throws Exception;
 	// 드레스 상세조회
@@ -43,6 +52,8 @@ public interface ShopService {
 	public BouquetdetailVO bouquetView(int gdsNum) throws Exception;
 	// 청첩장 상세조회
 	public InvitationdetailVO invitView(int gdsNum) throws Exception;
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 	/*
 	 * // 상품 소감(댓글) 작성 public void registReply(ReplyVO reply) throws Exception;
@@ -92,6 +103,7 @@ public interface ShopService {
 
 	// 검색별 상품 리스트
 	public List<GoodsViewVO> list(GoodsViewVO vo) throws Exception;
+<<<<<<< HEAD
 	
 	//주문완료창
 	public List<GoodsViewVO> orderdetail(OrderVO order) throws Exception;
@@ -99,4 +111,6 @@ public interface ShopService {
 	public void orderDelete(String userId) throws Exception;
 
 	
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 }

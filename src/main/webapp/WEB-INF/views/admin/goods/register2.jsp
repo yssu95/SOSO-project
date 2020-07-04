@@ -14,6 +14,7 @@
 <script src="/resources/ckeditor/ckeditor.js"></script>
 
 
+<<<<<<< HEAD
 <script>
 
 $(document).ready(function(){
@@ -55,6 +56,8 @@ $(document).ready(function(){
 		
 });
 </script>
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 <style>
 body {
@@ -174,6 +177,7 @@ textarea#gdsDes {
 .select_img img {
    margin: 20px 0;
 }
+<<<<<<< HEAD
 
 .inputArea #sample2_address { width:230px; }
 .inputArea #sample2_detailAddress { width:280px; }
@@ -181,7 +185,14 @@ textarea#gdsDes {
 </style>
 <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
 
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+.inputArea #sample2_address { width:230px; }
+.inputArea #sample2_detailAddress { width:280px; }
+.inputArea #sample2_extraAddress { display:none; }
+</style>
+<script src="/resources/jquery/jquery-3.3.1.min.js"></script>
 </head>
 <body>
    <div id="root">
@@ -203,6 +214,7 @@ textarea#gdsDes {
          </aside>
          <div id="container_box">
             <h2>상품 등록</h2>
+<<<<<<< HEAD
             <form role="form" method="post" autocomplete="off" action="register2"
                enctype="multipart/form-data" onsubmit="return formCheck();" id="enterForm" class="enterForm">
                
@@ -218,12 +230,109 @@ textarea#gdsDes {
                   <label for="gdsName">상품명</label> <input type="text" id="gdsName"
                      name="gdsName" />
                </div>
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                <div class="inputArea">
                   <label for="gdsPrice">상품가격</label> <input type="text"
                      id="gdsPrice" name="gdsPrice" />
                </div>
+=======
+            <form role="form" method="post" autocomplete="off"
+               enctype="multipart/form-data">
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+               <div class="inputArea">
+<<<<<<< HEAD
+                  <label for="gdsStock">상품수량</label> <input type="text"
+                     id="gdsStock" name="gdsStock" />
+               </div>
+               
+               <div class="inputArea">
+                  <label for="comName">업체명</label> <input type="text"
+                     id="comName" name="comName" />
+               </div>
+               <div class="inputArea">
+                  <label for="comSubway">인근 지하철</label> <input type="text"
+                     id="comSubway" name="comSubway" />
+               </div>
+               <div class="inputArea">
+                  <label for="comArea">지역</label> <input type="text"
+                     id="comArea" name="comArea" />
+               </div>
+               
+               <div class="inputArea">
+               <input  style="width: 40%; display: inline;"
+                  placeholder="우편번호" name="oaddress" id="oaddress" type="text"
+                  readonly="readonly">
+               <button type="button" class="btn btn-default"
+                  onclick="execPostCode();">
+                  <i class="fa fa-search"></i> 우편번호 찾기
+               </button>
+            </div>
+         
+            <div class="inputArea">
+               <input style="top: 5px;" placeholder="도로명 주소"
+                  name="address" id="address" type="text" readonly="readonly" />
+            </div>
+         
+            <div class="inputArea">
+               <input  placeholder="상세주소" name="detailaddress"
+                  id="detailaddress" type="text" />
+            </div>
+            
+=======
+                  <label>1차 분류</label> <select class="category1">
+                     <option value="">전체</option>
+                  </select> <label>2차 분류</label> <select class="category2" name="cateCode">
+                     <option value="">전체</option>
+                  </select>
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+                  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+                  <script>
+=======
+               <div class="inputArea">
+                  <label for="gdsName">상품명</label> <input type="text" id="gdsName"
+                     name="gdsName" />
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+                  //우편번호 찾기 버튼 클릭시 발생 이벤트
+=======
+               <div class="inputArea">
+                  <label for="gdsPrice">상품가격</label> <input type="text"
+                     id="gdsPrice" name="gdsPrice" />
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+                  function execPostCode() {
+                     new daum.Postcode({
+                        oncomplete: function(data) {
+                           // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                           // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                           // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                           var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                           var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+                           // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                           // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                           if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                              extraRoadAddr += data.bname;
+                           }
+                           // 건물명이 있고, 공동주택일 경우 추가한다.
+                           if(data.buildingName !== '' && data.apartment === 'Y'){
+                              extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                           }
+                           // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                           if(extraRoadAddr !== ''){
+                              extraRoadAddr = ' (' + extraRoadAddr + ')';
+                           }
+=======
                <div class="inputArea">
                   <label for="gdsStock">상품수량</label> <input type="text"
                      id="gdsStock" name="gdsStock" />
@@ -262,34 +371,9 @@ textarea#gdsDes {
                   id="detailaddress" type="text" />
             </div>
             
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
-                  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-                  <script>
-
-                  //우편번호 찾기 버튼 클릭시 발생 이벤트
-
-                  function execPostCode() {
-                     new daum.Postcode({
-                        oncomplete: function(data) {
-                           // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-                           // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-                           // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                           var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-                           var extraRoadAddr = ''; // 도로명 조합형 주소 변수
-                           // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                           // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                           if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                              extraRoadAddr += data.bname;
-                           }
-                           // 건물명이 있고, 공동주택일 경우 추가한다.
-                           if(data.buildingName !== '' && data.apartment === 'Y'){
-                              extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                           }
-                           // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                           if(extraRoadAddr !== ''){
-                              extraRoadAddr = ' (' + extraRoadAddr + ')';
-                           }
-
+<<<<<<< HEAD
                            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
                            if(fullRoadAddr !== ''){
                               fullRoadAddr += extraRoadAddr;
@@ -311,13 +395,22 @@ textarea#gdsDes {
                         }
                      }).open();
                   }
+=======
+                  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+                  <script>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                   </script>
                
                <div class="inputArea">
                   <label for="gdsDes">상품소개</label>
                   <textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
+=======
+                  //우편번호 찾기 버튼 클릭시 발생 이벤트
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                   <script>
                      var ckeditor_config = {
                         resize_enaleb : false,
@@ -325,19 +418,131 @@ textarea#gdsDes {
                         shiftEnterMode : CKEDITOR.ENTER_P,
                         filebrowserUploadUrl : "/admin/goods/ckUpload"
                      };
+=======
+                  function execPostCode() {
+                     new daum.Postcode({
+                        oncomplete: function(data) {
+                           // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                           // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                           // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                           var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                           var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+                           // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                           // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                           if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                              extraRoadAddr += data.bname;
+                           }
+                           // 건물명이 있고, 공동주택일 경우 추가한다.
+                           if(data.buildingName !== '' && data.apartment === 'Y'){
+                              extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                           }
+                           // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                           if(extraRoadAddr !== ''){
+                              extraRoadAddr = ' (' + extraRoadAddr + ')';
+                           }
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      CKEDITOR.replace("gdsDes", ckeditor_config);
                   </script>
+=======
+                           // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                           if(fullRoadAddr !== ''){
+                              fullRoadAddr += extraRoadAddr;
+                           }
+                           // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                           console.log(data.zonecode);
+                           console.log(fullRoadAddr);
+                           /* var a = console.log(data.zonecode);
+                           var b = console.log(fullRoadAddr);
+                           if(a == null || b = null){
+                              alert("주소를 확인하세요.");
+                              return false;
+                           } */
+                           $("[name=oaddress]").val(data.zonecode);
+                           $("[name=address]").val(fullRoadAddr);
+                           document.getElementById('oaddress').value = data.zonecode; //5자리 새우편번호 사용
+                           document.getElementById('address').value = fullRoadAddr;
+                           //document.getElementById('detailaddress').value = data.jibunAddress;
+                        }
+                     }).open();
+                  }
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                </div>
+=======
+                  </script>
+               
+               <div class="inputArea">
+                  <label for="gdsDes">상품소개</label>
+                  <textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                <div class="inputArea">
                   <label for="gdsImg">이미지</label> 
                   <input type="file" multiple="multiple" id="gdsImg" name="file" />
                   <div class="select_img">
                      <img src="" />
                   </div>
+=======
+                  <script>
+                     var ckeditor_config = {
+                        resize_enaleb : false,
+                        enterMode : CKEDITOR.ENTER_BR,
+                        shiftEnterMode : CKEDITOR.ENTER_P,
+                        filebrowserUploadUrl : "/admin/goods/ckUpload"
+                     };
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
+                  <script>
+                     $("#gdsImg")
+                           .change(
+                                 function() {
+                                    if (this.files && this.files[0]) {
+                                       var reader = new FileReader;
+                                       reader.onload = function(
+                                             data) {
+                                          $(".select_img img")
+                                                .attr(
+                                                      "src",
+                                                      data.target.result)
+                                                .width(1000);
+                                       }
+                                       reader
+                                             .readAsDataURL(this.files[0]);
+                                    }
+                                 });
+=======
+                     CKEDITOR.replace("gdsDes", ckeditor_config);
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+                  </script>
+
+<<<<<<< HEAD
+                  <%=request.getRealPath("/")%>
+=======
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+               </div>
+               </div>
+=======
+               <div class="inputArea">
+                  <label for="gdsImg">이미지</label> 
+                  <input type="file" multiple="multiple" id="gdsImg" name="file" />
+                  <div class="select_img">
+                     <img src="" />
+                  </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+               <div class="inputArea">
+                  <button type=submit id="register_Btn" class="btn btn-primary">등록</button>
+               </div>
+=======
                   <script>
                      $("#gdsImg")
                            .change(
@@ -357,52 +562,97 @@ textarea#gdsDes {
                                     }
                                  });
                   </script>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
-                  <%=request.getRealPath("/")%>
-
-               </div>
-               </div>
-
-               <div class="inputArea">
-                  <button type=submit id="register_Btn" class="btn btn-primary">등록</button>
-               </div>
-
+<<<<<<< HEAD
             </form>
+=======
+                  <%=request.getRealPath("/")%>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
          </div>
       </section>
+=======
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
       <footer id="footer">
          <div id="footer_box">
             <%@ include file="../include/footer.jsp"%>
          </div>
       </footer>
+=======
+               <div class="inputArea">
+                  <button type="submit" id="register_Btn" class="btn btn-primary">등록</button>
+               </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
    </div>
+=======
+            </form>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
    <script>
       // 컨트롤러에서 데이터 받기
       var jsonData = JSON.parse('${category}');
+=======
+         </div>
+      </section>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
       // 필요한 배열과 오브젝트 변수 생성
       var cate1Arr = new Array();
       var cate1Obj = new Object();
+=======
+      <footer id="footer">
+         <div id="footer_box">
+            <%@ include file="../include/footer.jsp"%>
+         </div>
+      </footer>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
       // 1차 분류 셀렉트 박스에 삽입할 데이터 준비
       for (var i = 0; i < jsonData.length; i++) {
+=======
+   </div>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
          if (jsonData[i].level == "1") { // 레벨이 1인 데이터가 있다면 
             cate1Obj = new Object(); // 초기화
+=======
+   <script>
+      // 컨트롤러에서 데이터 받기
+      var jsonData = JSON.parse('${category}');
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
             // cate1Obj에 cateCode와 cateName를 저장
             cate1Obj.cateCode = jsonData[i].cateCode;
             cate1Obj.cateName = jsonData[i].cateName;
+=======
+      // 필요한 배열과 오브젝트 변수 생성
+      var cate1Arr = new Array();
+      var cate1Obj = new Object();
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
             // cate1Obj에 저장된 값을 cate1Arr 배열에 저장
             cate1Arr.push(cate1Obj);
          }
       }
+=======
+      // 1차 분류 셀렉트 박스에 삽입할 데이터 준비
+      for (var i = 0; i < jsonData.length; i++) {
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
       // 1차 분류 셀렉트 박스에 데이터 삽입
       var cate1Select = $("select.category1")
       
@@ -413,59 +663,154 @@ textarea#gdsDes {
          cate1Select.append("<option value='" + cate1Arr[i].cateCode + "'>"
                + cate1Arr[i].cateName + "</option>");   
       }
+=======
+         if (jsonData[i].level == "1") { // 레벨이 1인 데이터가 있다면 
+            cate1Obj = new Object(); // 초기화
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
       // 클래스가 category1인 select변수의 값이 바뀌었을 때 실행
       $(document)
             .on(
                   "change",
                   "select.category1",
                   function() {
+=======
+            // cate1Obj에 cateCode와 cateName를 저장
+            cate1Obj.cateCode = jsonData[i].cateCode;
+            cate1Obj.cateName = jsonData[i].cateName;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      // 필요한 배열과 오브젝트 변수를 생성
                      var cate2Arr = new Array();
                      var cate2Obj = new Object();
+=======
+            // cate1Obj에 저장된 값을 cate1Arr 배열에 저장
+            cate1Arr.push(cate1Obj);
+         }
+      }
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      // 2차 분류 셀렉트 박스에 삽입할 데이터 준비
                      for (var i = 0; i < jsonData.length; i++) {
+=======
+      // 1차 분류 셀렉트 박스에 데이터 삽입
+      var cate1Select = $("select.category1")
+      
+      var result ="result"
+      for (var i = 0; i < cate1Arr.length; i++) {
+         
+         // cate1Arr에 저장된 값을 cate1Select에 추가
+         cate1Select.append("<option value='" + cate1Arr[i].cateCode + "'>"
+               + cate1Arr[i].cateName + "</option>");   
+      }
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                         if (jsonData[i].level == "2") { // 레빌이 2인 데이터가 있다면
                            cate2Obj = new Object(); // 초기화
+=======
+      // 클래스가 category1인 select변수의 값이 바뀌었을 때 실행
+      $(document)
+            .on(
+                  "change",
+                  "select.category1",
+                  function() {
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                            // cate2Obj에 cateCode, cateName, cateCodeRef를 저장
                            cate2Obj.cateCode = jsonData[i].cateCode;
                            cate2Obj.cateName = jsonData[i].cateName;
                            cate2Obj.cateCodeRef = jsonData[i].cateCodeRef;
+=======
+                     // 필요한 배열과 오브젝트 변수를 생성
+                     var cate2Arr = new Array();
+                     var cate2Obj = new Object();
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                            // cate2Obj에 저장된 값을 cate2Arr 배열에 저장
                            cate2Arr.push(cate2Obj);
                         }
                      }
+=======
+                     // 2차 분류 셀렉트 박스에 삽입할 데이터 준비
+                     for (var i = 0; i < jsonData.length; i++) {
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      var cate2Select = $("select.category2");
+=======
+                        if (jsonData[i].level == "2") { // 레빌이 2인 데이터가 있다면
+                           cate2Obj = new Object(); // 초기화
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      /*
                      for(var i = 0; i < cate2Arr.length; i++) {
                            cate2Select.append("<option value='" + cate2Arr[i].cateCode + "'>"
                                           + cate2Arr[i].cateName + "</option>");
                      }
                       */
+=======
+                           // cate2Obj에 cateCode, cateName, cateCodeRef를 저장
+                           cate2Obj.cateCode = jsonData[i].cateCode;
+                           cate2Obj.cateName = jsonData[i].cateName;
+                           cate2Obj.cateCodeRef = jsonData[i].cateCodeRef;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      // cate2Select의 값을 제거함(초기화)
                      cate2Select.children().remove();
+=======
+                           // cate2Obj에 저장된 값을 cate2Arr 배열에 저장
+                           cate2Arr.push(cate2Obj);
+                        }
+                     }
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                      // cate1Select에서 선택한 값을 기준으로 cate2Select의 값을 조정
                      $("option:selected", this)
                            .each(
                                  function() {
+=======
+                     var cate2Select = $("select.category2");
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                                     var selectVal = $(this).val(); // 현재 선택한 cate1Select의 값을 저장
+=======
+                     /*
+                     for(var i = 0; i < cate2Arr.length; i++) {
+                           cate2Select.append("<option value='" + cate2Arr[i].cateCode + "'>"
+                                          + cate2Arr[i].cateName + "</option>");
+                     }
+                      */
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                                     cate2Select
                                           .append("<option value='" + selectVal + "'>전체</option>"); // cate2Select의 '전체'에 현재 선택한 cate1Select와 같은 값 부여
+=======
+                     // cate2Select의 값을 제거함(초기화)
+                     cate2Select.children().remove();
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                                     // cate2Arr의 데이터를 cate2Select에 추가
                                     for (var i = 0; i < cate2Arr.length; i++) {
+=======
+                     // cate1Select에서 선택한 값을 기준으로 cate2Select의 값을 조정
+                     $("option:selected", this)
+                           .each(
+                                 function() {
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
                                        // 현재 선택한 cate1Select의 값과 일치하는 cate2Arr의 데이터를 가져옴
                                        if (selectVal == cate2Arr[i].cateCodeRef) {
                                           cate2Select
@@ -475,7 +820,54 @@ textarea#gdsDes {
                                        }
                                     }
                                  });
+=======
+                                    var selectVal = $(this).val(); // 현재 선택한 cate1Select의 값을 저장
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
+<<<<<<< HEAD
+                  });
+   </script>
+=======
+                                    cate2Select
+                                          .append("<option value='" + selectVal + "'>전체</option>"); // cate2Select의 '전체'에 현재 선택한 cate1Select와 같은 값 부여
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+   <script>
+      var regExp = /[^0-9]/gi;
+=======
+                                    // cate2Arr의 데이터를 cate2Select에 추가
+                                    for (var i = 0; i < cate2Arr.length; i++) {
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+      $("#gdsPrice").keyup(function() {
+         numCheck($(this));
+      });
+      $("#gdsStock").keyup(function() {
+         numCheck($(this));
+      });
+=======
+                                       // 현재 선택한 cate1Select의 값과 일치하는 cate2Arr의 데이터를 가져옴
+                                       if (selectVal == cate2Arr[i].cateCodeRef) {
+                                          cate2Select
+                                                .append("<option value='" + cate2Arr[i].cateCode + "'>"
+                                                      + cate2Arr[i].cateName
+                                                      + "</option>");
+                                       }
+                                    }
+                                 });
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
+
+<<<<<<< HEAD
+      function numCheck(selector) {
+         var tempVal = selector.val();
+         selector.val(tempVal.replace(regExp, ""));
+      }
+   </script>
+   
+  
+=======
                   });
    </script>
 
@@ -494,7 +886,6 @@ textarea#gdsDes {
          selector.val(tempVal.replace(regExp, ""));
       }
    </script>
-   
-  
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 </body>
 </html>

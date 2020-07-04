@@ -15,12 +15,20 @@
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/user/shop/store_2.css">
 <link rel="stylesheet" href="/resources/css/main/header-footer.css">
+<<<<<<< HEAD
 <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+=======
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<script src="/resources/jquery/jquery-3.3.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 <script>
 
+<<<<<<< HEAD
 $(document)
 .ready(
       function() {
@@ -108,6 +116,24 @@ $(document)
    -webkit-filter:blur(1.5px);
 }
 #noimeffect{
+=======
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("imeffect");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("noimeffect");
+  current[0].className = current[0].className.replace(" noimeffect", "");
+  this.className += " noimeffect";
+  });
+}
+</script>
+<style>
+.imeffect {
+	filter: blur(2px); /* 여기 적힌 수치만큼 블러효과가 커집니다. */
+	-webkit-filter:blur(2px);
+}
+.noimeffect{
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 filter:none;}
 </style>
 </head>
@@ -177,6 +203,7 @@ filter:none;}
     </div><!--/indexIcon-->
 
 
+<<<<<<< HEAD
    <div class="container">
     <!-- 상품검색 -->
     <div class="KategorieSearch">
@@ -239,6 +266,161 @@ filter:none;}
    </div>    <!--contents-->
    </div>
    </div>
+=======
+	<div class="container">
+		<!-- header -->
+		<div class="header">
+			<%@ include file="../include/header2.jsp"%>
+		</div>
+		<!--header-->
+
+		<!-- 상단 index 9개 -->
+		<div class="indexIcon">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4" id="myDIV">
+					<div class="icon">
+					<a href="/shop/list?c=101&l=2"><img
+							src="/resources/images/store/weddingHall.jpg"
+							alt="드레스" class="img-responsive img-circle imeffect noimeffect"/></a>
+						<p>웨딩홀</p>
+					</div>
+
+					<div class="icon">
+						<a href="/shop/list?c=102&l=2"><img
+							src="/resources/images/store/FilterWeddingDress.jpg"
+							onmouseover="this.src='/resources/images/store/weddingDress.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterWeddingDress.jpg';"
+							alt="드레스" class="img-responsive img-circle imeffect" /></a>
+						<p>드레스</p>
+					</div>
+					<div class="icon">
+						<a href="/shop/list?c=103&l=2"><img
+							src="/resources/images/store/FilteHairNmakeup.jpg"
+							onmouseover="this.src='/resources/images/store/hairNmakeup.jpg';"
+							onmouseout="this.src='/resources/images/store/FilteHairNmakeup.jpg';"
+							alt="메이크업" class="img-responsive img-circle imeffect" /></a>
+						<p>메이크업</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<div class="icon">
+						<a href="/shop/list?c=104&l=2"><img
+							src="/resources/images/store/FilterStudio.jpg"
+							onmouseover="this.src='/resources/images/store/studio.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterStudio.jpg';"
+							alt="웨딩홀" class="img-responsive img-circle imeffect" /></a>
+						<p>스튜디오</p>
+					</div>
+					<div class="icon">
+						<a href="/shop/list?c=105&l=2"><img
+							src="/resources/images/store/FilterSnapNdvd.jpg"
+							onmouseover="this.src='/resources/images/store/snapNdvd.png';"
+							onmouseout="this.src='/resources/images/store/FilterSnapNdvd.jpg';"
+							alt="스냅/DVD" class="img-responsive img-circle imeffect" /></a>
+						<p>스냅/DVD</p>
+					</div>
+					<div class="icon">
+						<a href="/shop/list?c=106&l=2"><img
+							src="/resources/images/store/FilterDressSuit.jpg"
+							onmouseover="this.src='/resources/images/store/dressSuit.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterDressSuit.jpg';"
+							alt="예복" class="img-responsive img-circle imeffect" /></a>
+						<p>예복</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<div class="icon">
+						<a href="/shop/list?c=107&l=2"><img
+							src="/resources/images/store/FilterHanbok.jpg"
+							onmouseover="this.src='/resources/images/store/hanbok.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterHanbok.jpg';"
+							alt="한복" class="img-responsive img-circle" /></a>
+						<p>한복</p>
+					</div>
+					<div class="icon">
+						<a href="/shop/list?c=108&l=2"><img
+							src="/resources/images/store/FilterBouquet.jpg"
+							onmouseover="this.src='/resources/images/store/bouquet.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterBouquet.jpg';"
+							alt="부케" class="img-responsive img-circle" /></a>
+						<p>부케</p>
+					</div>
+					<div class="icon">
+						<a href="/shop/list?c=109&l=2"><img
+							src="/resources/images/store/FilterInvitation.jpg"
+							onmouseover="this.src='/resources/images/store/invitation.jpg';"
+							onmouseout="this.src='/resources/images/store/FilterInvitation.jpg';"
+							alt="청첩장" class="img-responsive img-circle" /></a>
+						<p>청첩장</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--indexIcon-->
+
+		<!-- 상품검색 -->
+		<div class="KategorieSearch">
+			<form action="" method="GET">
+				<div class="row">
+					<div class="col-sm-12">
+						<select name="star" id="select1">
+							<option value="none" disabled selected>별점순</option>
+							<option value="5">5점</option>
+							<option value="4">4점</option>
+							<option value="3">3점</option>
+							<option value="2">2점</option>
+							<option value="1">1점</option>
+						</select> <select name="location" id="select2">
+							<option value="전체">지역전체</option>
+							<option value="서울">서울</option>
+							<option value="경기">경기</option>
+							<option value="인천">인천</option>
+							<option value="강원">강원</option>
+							<option value="충청">충청</option>
+							<option value="전라">전라</option>
+							<option value="경상">경상</option>
+							<option value="제주">제주</option>
+						</select>
+						<div class="form-inline" role="search" id="select3">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="결과 내 검색"
+									id="select4">
+								<button type="submit" class="btn btn-default" href="#"
+									id="select5">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!--KategorieSearch-->
+
+		<!-- 상품목록 -->
+		<div class="contents">
+
+			<c:set var="loop_flag" value="false" />
+			<c:forEach items="${list}" var="list" varStatus="status">
+				<c:if test="${status.count%4==1}">
+					<div class="row">
+				</c:if>
+				<div class="col-xs-6 col-sm-3">
+					<div class="boxContents">
+						<a href="/shop/view?n=${list.gdsNum}"><img
+							src="${list.gdsThumbImg}"></a>
+						<h4>${list.gdsName}</h4>
+						<p id="red">[${list.comArea }]</p>
+						<p>${list.comName }</p>
+						<h4><fmt:formatNumber pattern="###,###,###" value="${list.gdsPrice}" />원</h4>
+					</div>
+				</div>
+				<c:if test="${status.count%4==0}">
+		</div>
+		</c:if>
+
+		</c:forEach>
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 
 
@@ -272,6 +454,7 @@ filter:none;}
     <%@ include file="../include/footer2.jsp"%>
   </div>  <!--/footer-->
 
+<<<<<<< HEAD
   <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
@@ -287,5 +470,23 @@ filter:none;}
      })
 </script>
  
+=======
+	<!-- footer -->
+	<div class="footer">
+			<%@ include file="../include/footer2.jsp"%>
+		</div>
+	<!--footer-->
+	</div>
+	<!--container-->
+
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 </body>
 </html>

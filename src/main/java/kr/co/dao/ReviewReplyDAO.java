@@ -2,6 +2,10 @@ package kr.co.dao;
 
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+import kr.co.vo.ReplyVO;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 import kr.co.vo.ReviewReplyVO;
 
 public interface ReviewReplyDAO {

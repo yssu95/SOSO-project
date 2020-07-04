@@ -23,8 +23,12 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		}
 		
 		
+<<<<<<< HEAD
 	
 		if(member.getVerify() != 9){
+=======
+		if(member.getVerify() != 0) {
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 			res.sendRedirect("/");
 	         return false;
 		}

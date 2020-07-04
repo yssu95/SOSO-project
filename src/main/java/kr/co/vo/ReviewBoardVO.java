@@ -12,7 +12,10 @@ public class ReviewBoardVO {
 	private Date regdate;
 	private int hit;
 	private int reply_cnt;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	public int getBno() {
 		return bno;
 	}

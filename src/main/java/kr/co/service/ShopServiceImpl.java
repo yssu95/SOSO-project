@@ -48,6 +48,7 @@ public class ShopServiceImpl implements ShopService {
 	public GoodsViewVO goodsView(int gdsNum) throws Exception {
 		return dao.goodsView(gdsNum);
 	}
+<<<<<<< HEAD
 	
 	// 웨딩홀 상세 조회
 	@Override
@@ -104,6 +105,8 @@ public class ShopServiceImpl implements ShopService {
 	public InvitationdetailVO invitView(int gdsNum) throws Exception{
 		return dao.invitView(gdsNum);
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 
 	/*
 	 * // 상품 소감(댓글) 작성
@@ -187,6 +190,7 @@ public class ShopServiceImpl implements ShopService {
 	public List<GoodsViewVO> list(GoodsViewVO vo) throws Exception {
 		return dao.list(vo);
 	}
+<<<<<<< HEAD
     //주문
 	@Override
 	public List<GoodsViewVO> cartList2(String userId) throws Exception {
@@ -212,4 +216,6 @@ public class ShopServiceImpl implements ShopService {
 	   }
 
 	
+=======
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 }

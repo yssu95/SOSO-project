@@ -1,6 +1,7 @@
 /* @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css); */
 
 body {
+<<<<<<< HEAD
   font-family: 'NanumSquare', sans-serif;
   padding-top: 73px;
  }
@@ -241,15 +242,31 @@ margin: 0;
 
    .search_wrap {
     width: 320px;
+=======
+    font-family: "나눔스퀘어", sans-serif;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
   }
 
    #topSearch {
     width: 230px;
   }
 
+<<<<<<< HEAD
   .topSearchBtn {
     margin-left: 30px;
     /* padding:  25px 0 10px; */
+=======
+  /* navbar */
+  .marginSm{
+    margin-bottom: -20px;
+  }
+  
+  .navbar {
+    background-color: #D7DBD1;
+    border: #807F89;
+    font-size: large;
+    font-weight: bold;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
   }
 
   .navbar-default .navbar-collapse {
@@ -306,4 +323,52 @@ margin: 0;
   }
  
 
+<<<<<<< HEAD
  }
+=======
+  /* footer */
+  .footer {
+    background-color: #D7DBD1;
+    padding: 20px 10px;
+  }
+
+  #phoneNumber {
+    font-weight: bold;
+    font-size: x-large;
+    float: right;
+    margin-left: 10px;
+  }
+
+  #phoneImage {
+    color: #ECA4A6;
+    font-weight: bold;
+    font-size: x-large;
+    float: right;
+  }
+  
+  /* 반응형 */
+  @media (max-width: 767px) {
+
+    /* header */
+    .loginbtn,
+    .joinbtn {
+      margin: 50px 3px 0 0;
+      width: 65px;
+      padding: 6px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .navbar-form .form-control{
+      width: 120px;
+    }
+
+  }
+
+  @media (min-width: 992px) {
+    .navbar-form .form-control{
+      width: auto;
+    }
+
+  }
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.vo.QnaBoardVO;
+<<<<<<< HEAD
 import kr.co.vo.SearchCriteria;
 
 public interface QnaBoardService {
@@ -24,6 +25,24 @@ public interface QnaBoardService {
 	
 	// 게시물 조회
 	public QnaBoardVO boardhit(Integer bno) throws Exception;
+=======
+import kr.co.vo.ReviewBoardVO;
+import kr.co.vo.SearchCriteria;
+
+public interface QnaBoardService {
+
+	// 게시글 작성
+	public void write(QnaBoardVO boardVO, MultipartHttpServletRequest mpRequest) throws Exception;
+
+	// 게시물 목록 조회
+	public List<QnaBoardVO> list(SearchCriteria scri) throws Exception;
+	
+	// 게시물 총 갯수
+	public int listCount(SearchCriteria scri) throws Exception;
+	
+	// 게시물 조회
+	public QnaBoardVO read(Integer bno) throws Exception;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
 	
 	// 게시물 수정
 	public void update(QnaBoardVO boardVO, String[] files, String[] fileNames, MultipartHttpServletRequest mpRequest) throws Exception;

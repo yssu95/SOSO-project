@@ -102,6 +102,7 @@ public interface ShopDAO {
 
 	// 특정 주문 목록
 	public List<OrderListVO> orderView(OrderVO order) throws Exception;
+<<<<<<< HEAD
 
 	// 검색별 상품 리스트
 	public List<GoodsViewVO> list(GoodsViewVO vo) throws Exception;
@@ -112,3 +113,10 @@ public interface ShopDAO {
 	public int orderDelete(String userId) throws Exception;
 
 }
+=======
+	
+	// 검색별 상품 리스트
+	   public List<GoodsViewVO> list(GoodsViewVO vo)  throws Exception;
+		
+}  
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git

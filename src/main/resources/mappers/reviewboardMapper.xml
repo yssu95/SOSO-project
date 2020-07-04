@@ -50,6 +50,7 @@
                      ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
                FROM REVIEW_BOARD
                WHERE 1=1 AND bno>0
+<<<<<<< HEAD
      <include refid="search"></include>
                              ) MP
       WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
@@ -64,6 +65,12 @@
             ORDER BY HIT DESC
          </when>
       </choose>
+=======
+                  <include refid="search"></include>
+                             ) MP
+      WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+      ORDER BY BNO DESC
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
    </select>
    
    <select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">

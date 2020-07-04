@@ -44,7 +44,11 @@ table{
 
 th{
     letter-spacing: 1px;
+<<<<<<< HEAD
     width: 110px;
+=======
+    width: 100px;
+>>>>>>> branch 'master' of https://github.com/yssu95/2020-05-24.git
     background-color: #D7DBD1;
 }
 /* 상품설명 */
