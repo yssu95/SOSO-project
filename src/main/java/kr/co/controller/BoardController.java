@@ -22,6 +22,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.service.BoardService;
 import kr.co.service.ReplyService;
+import kr.co.service.dminService;
+import kr.co.vo.AdminNoticesVO;
 import kr.co.vo.BoardVO;
 import kr.co.vo.PageMaker;
 import kr.co.vo.ReplyVO;
@@ -38,6 +40,9 @@ public class BoardController {
 
    @Inject
    ReplyService replyService;
+   
+   @Inject
+   dminService dminService;
 
    // 게시판 글 작성 화면
    @RequestMapping(value = "/writeView", method = RequestMethod.GET)
@@ -45,6 +50,38 @@ public class BoardController {
       logger.info("writeView");
 
    }
+   
+// 보드메인
+   @RequestMapping(value = "/comunity", method = RequestMethod.GET)
+   public void board() throws Exception {
+      logger.info("comunity");
+
+   }
+// 공지사항 목록
+	@RequestMapping(value = "/notices", method = RequestMethod.GET)
+	public String notices(Model model,@ModelAttribute("scri") SearchCriteria scri) throws Exception {
+		logger.info("관리자: 공지사항 목록");
+
+		model.addAttribute("notices", dminService.notices(scri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(scri);
+     	pageMaker.setTotalCount(dminService.listCount3(scri));
+     	model.addAttribute("pageMaker", pageMaker);
+     	
+		return "board/notices";
+	}
+	// 공지사항 상세 조회
+			@RequestMapping(value = "/noticesR", method = RequestMethod.GET)
+			public void noticesR(@RequestParam("no") int no, Model model) throws Exception {
+				logger.info("관리자: 공지사항 상세 목록");
+				
+				AdminNoticesVO vo = dminService.noticesR(no);
+				model.addAttribute("noticesR", vo);
+			
+				List<Map<String, Object>> fileList = dminService.selectFileList2(vo.getNo());
+				model.addAttribute("file_1", fileList);
+				dminService.noticesHit(no);
+			}
 
    // 게시판 글 작성
    @RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -57,11 +94,27 @@ public class BoardController {
 
    // 게시판 목록 조회
    @RequestMapping(value = "/list", method = RequestMethod.GET)
-   public String list(Model model, @ModelAttribute("scri") SearchCriteria scri) throws Exception {
+   public String list(Model model, @ModelAttribute("scri") SearchCriteria scri, @ModelAttribute("sort") String sort) throws Exception {
       logger.info("list");
-
+      try {
+         if(sort.equals("") || sort== null) {
+            sort="a";
+            scri.setSort(sort);
+         }
+      }
+      catch(Exception e) {
+         sort="a";
+         scri.setSort(sort);
+      }
+      if(sort.equals("bno"))
+         scri.setSort("bno");
+      else if(sort.equals("regdate"))
+         scri.setSort("regdate");
+      else if(sort.equals("hit"))
+         scri.setSort("hit");
+      
       model.addAttribute("list", service.list(scri));
-
+     
       PageMaker pageMaker = new PageMaker();
       pageMaker.setCri(scri);
       pageMaker.setTotalCount(service.listCount(scri));
@@ -71,19 +124,20 @@ public class BoardController {
       return "board/list";
 
    }
+   
+
 
    @RequestMapping(value = "/readView", method = RequestMethod.GET)
    public String read(BoardVO boardVO, HttpSession session, @ModelAttribute("scri") SearchCriteria scri, Model model, int bno) throws Exception {
       logger.info("read");
-      BoardVO bv = service.read(bno);
-      model.addAttribute("mp_board", bv);
-      System.out.println(bv.toString());
       
-      System.out.println(session.getAttribute("member").toString());
       model.addAttribute("mp_member", session.getAttribute("member"));
-      
-      model.addAttribute("read", service.read(boardVO.getBno()));
+      BoardVO bv = service.read(boardVO.getBno());
+      model.addAttribute("mp_board", bv);
+      model.addAttribute("read", bv);
       model.addAttribute("scri", scri);
+      
+      service.boardhit(bno);
 
       List<ReplyVO> replyList = replyService.readReply(boardVO.getBno());
       model.addAttribute("replyList", replyList);
@@ -230,4 +284,9 @@ public class BoardController {
 
    }
    
+   // 로그인 
+   @RequestMapping(value = "/needLogin", method = RequestMethod.GET)
+   public void needLogin() throws Exception{
+      logger.info("needLogin");
+   }
 }

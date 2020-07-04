@@ -34,6 +34,12 @@ public class CategoryVO {
 	public void setCateCodeRef(String cateCodeRef) {
 		this.cateCodeRef = cateCodeRef;
 	}
+	@Override
+	public String toString() {
+		return "CategoryVO [cateName=" + cateName + ", cateCode=" + cateCode + ", cateCodeRef=" + cateCodeRef
+				+ ", level=" + level + "]";
+	}
+	
 	
 			
 }

@@ -13,7 +13,9 @@ public class MemberVO {
 	private String oaddress;
 	private String address;
 	private String detailaddress;
+	private int count;
 	private int verify;
+	
 	public int getVerify() {
 		return verify;
 	}
@@ -80,12 +82,21 @@ public class MemberVO {
 	public void setDetailaddress(String detailaddress) {
 		this.detailaddress = detailaddress;
 	}
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [userId=" + userId + ", userPass=" + userPass + ", userName=" + userName + ", birth=" + birth
 				+ ", email=" + email + ", phone=" + phone + ", gender=" + gender + ", oaddress=" + oaddress
-				+ ", address=" + address + ", detailaddress=" + detailaddress + ", verify=" + verify + "]";
+				+ ", address=" + address + ", detailaddress=" + detailaddress + ", count=" + count + ", verify="
+				+ verify + "]";
 	}
+
 	
 	
 }

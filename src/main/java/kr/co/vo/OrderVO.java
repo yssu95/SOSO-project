@@ -24,7 +24,14 @@ public class OrderVO {
 	private String orderPhon;
 	private int amount;
 	private Date orderDate;
+	private String orderDes;
 	
+	public String getOrderDes() {
+		return orderDes;
+	}
+	public void setOrderDes(String orderDes) {
+		this.orderDes = orderDes;
+	}
 	public Date getOrderDate() {
 		return orderDate;
 	}
@@ -83,7 +90,7 @@ public class OrderVO {
 	public String toString() {
 		return "OrderVO [orderId=" + orderId + ", userId=" + userId + ", orderRec=" + orderRec + ", userAddr1="
 				+ userAddr1 + ", userAddr2=" + userAddr2 + ", userAddr3=" + userAddr3 + ", orderPhon=" + orderPhon
-				+ ", amount=" + amount + ", orderDate=" + orderDate + "]";
+				+ ", amount=" + amount + ", orderDate=" + orderDate + ", orderDes=" + orderDes + "]";
 	}
 	
 			

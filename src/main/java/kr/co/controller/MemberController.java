@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -76,6 +75,10 @@ public class MemberController {
 	         boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
 	         if(pwdMatch==true) {
 	            session.setAttribute("member", login);
+	         } else {
+		         session.setAttribute("member", null);  // member 세션에 null 부여  
+		         rttr.addFlashAttribute("msg", false);
+		         return "redirect:/member/signin";
 	         }
 	      }
 	      else {
@@ -124,6 +127,20 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	   // 회원정보수정전 비밀번호확인 get
+	   @RequestMapping(value="/memberPassChkView", method = RequestMethod.GET)
+	   public String memberPassChkView() throws Exception{
+	      return "member/memberPassChkView";
+	   }
+	   
+	   // 회원정보수정전 비밀번호확인  post
+	   @RequestMapping(value="/memberPassChkView", method = RequestMethod.POST)
+	   public String memberPassChkView(MemberVO vo, HttpSession session) throws Exception{
+	      String inputPass = vo.getUserPass();
+	      String pwd = pwdEncoder.encode(inputPass);
+	      vo.setUserPass(pwd);
+	      return "redirect:/";
+	   }
 	
 	// 회원 탈퇴 get
 	@RequestMapping(value="/memberDeleteView", method = RequestMethod.GET)

@@ -42,7 +42,7 @@
 			<%@ include file="include/header.jsp" %>
 		</div>
 	</header>
-
+	
 	<nav id="nav">
 		<div id="nav_box">
 			<%@ include file="include/nav.jsp" %>

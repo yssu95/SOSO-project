@@ -1,5 +1,6 @@
 package kr.co.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,12 +17,14 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Inject
 	private SqlSession sqlSession;
-
+	// 홈 에서 불러올 게시물  정보 조회
+	
 	// 게시글 작성
 	@Override
 	public void write(BoardVO boardVO) throws Exception {
 		sqlSession.insert("boardMapper.insert", boardVO);
 	}
+	
 	// 게시물 목록 조회
 	@Override
 	public List<BoardVO> list(SearchCriteria scri) throws Exception {
@@ -36,13 +39,7 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("boardMapper.listCount", scri);
 	}
 
-	// 게시물 조회
-	@Override
-	public BoardVO read(int bno) throws Exception {
-
-		return sqlSession.selectOne("boardMapper.read", bno);
-	}
-
+	
 	// 게시물 수정
 	@Override
 	public void update(BoardVO boardVO) throws Exception {
@@ -81,9 +78,29 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.update("boardMapper.updateFile", map);
 	}
 	
+	// 게시물 조회
+		@Override
+		public BoardVO read(int bno) throws Exception {
+
+			return sqlSession.selectOne("boardMapper.read", bno);
+		}
+
 	// 조회수 기능
 	@Override
-	public void boardHit(int bno) throws Exception {
+	public BoardVO boardHit(int bno) throws Exception {
 		sqlSession.update("boardMapper.boardHit", bno);
+		return null;
 	}
+	
+	// 댓글 숫자
+	@Override
+	public void updateReplyCnt(Integer bno, int amount) throws Exception{
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("bno", bno);
+		paramMap.put("amount", amount);
+		
+		sqlSession.update("boardMapper.updateReplyCnt", paramMap);
+	}
+	
+	
 }

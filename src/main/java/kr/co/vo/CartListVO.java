@@ -76,6 +76,12 @@ public class CartListVO {
 	public void setGdsThumbImg(String gdsThumbImg) {
 		this.gdsThumbImg = gdsThumbImg;
 	}
+	@Override
+	public String toString() {
+		return "CartListVO [cartNum=" + cartNum + ", userId=" + userId + ", gdsNum=" + gdsNum + ", cartStock="
+				+ cartStock + ", addDate=" + addDate + ", num=" + num + ", gdsName=" + gdsName + ", gdsPrice="
+				+ gdsPrice + ", gdsThumbImg=" + gdsThumbImg + "]";
+	}
 	
 			
 }

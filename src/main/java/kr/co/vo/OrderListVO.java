@@ -12,7 +12,7 @@ public class OrderListVO {
 	private String orderPhon;
 	private int amount;
 	private Date orderDate;
-	
+	private String orderDes;
 	private int orderDetailsNum;
 	private int gdsNum;
 	private int cartStock;
@@ -20,6 +20,22 @@ public class OrderListVO {
 	private String gdsName;
 	private String gdsThumbImg;
 	private int gdsPrice;
+	
+	@Override
+	public String toString() {
+		return "OrderListVO [orderId=" + orderId + ", userId=" + userId + ", orderRec=" + orderRec + ", userAddr1="
+				+ userAddr1 + ", userAddr2=" + userAddr2 + ", userAddr3=" + userAddr3 + ", orderPhon=" + orderPhon
+				+ ", amount=" + amount + ", orderDate=" + orderDate + ", orderDes=" + orderDes + ", orderDetailsNum="
+				+ orderDetailsNum + ", gdsNum=" + gdsNum + ", cartStock=" + cartStock + ", gdsName=" + gdsName
+				+ ", gdsThumbImg=" + gdsThumbImg + ", gdsPrice=" + gdsPrice + "]";
+	}
+	public String getOrderDes() {
+		return orderDes;
+	}
+	public void setOrderDes(String orderDes) {
+		this.orderDes = orderDes;
+	}
+	
 	
 	public int getGdsPrice() {
 		return gdsPrice;

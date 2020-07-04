@@ -36,6 +36,13 @@ public class OrderDetailVO {
 	public void setCartStock(int cartStock) {
 		this.cartStock = cartStock;
 	}
+	@Override
+	public String toString() {
+		return "OrderDetailVO [orderDetailsNum=" + orderDetailsNum + ", orderId=" + orderId + ", gdsNum=" + gdsNum
+				+ ", cartStock=" + cartStock + ", getOrderDetailsNum()=" + getOrderDetailsNum() + ", getOrderId()="
+				+ getOrderId() + ", getGdsNum()=" + getGdsNum() + ", getCartStock()=" + getCartStock() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
 	
 	
 	

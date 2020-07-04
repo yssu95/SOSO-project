@@ -1,4 +1,4 @@
-package kr.co.dao;
+ package kr.co.dao;
 
 import kr.co.vo.MemberVO;
 
@@ -25,5 +25,6 @@ public interface MemberDAO {
 	// 이메일 중복 검사
 	public int checkEmail(MemberVO vo) throws Exception;
 
-	
+	// 정보수정전 pw 확인
+	   public boolean checkPw(String userId, String userPass)throws Exception;
 }

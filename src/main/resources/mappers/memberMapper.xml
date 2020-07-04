@@ -18,7 +18,7 @@
 							 ,VERIFY
 							 		)
 		VALUES(#{userId},
-			   #{userPass},
+			   #{userPass,jdbcType=VARCHAR},
 			   #{userName,jdbcType=VARCHAR},
 			   #{birth ,jdbcType=VARCHAR},
 			   #{email,jdbcType=VARCHAR},
@@ -55,6 +55,7 @@
 	
 	<!-- 회원탈퇴 -->
 	<delete id="memberDelete">
+	
 		DELETE FROM MP_MEMBER
 		WHERE USERID = #{userId}
 		 <!--  AND USERPASS = #{userPass} --> 
@@ -76,5 +77,12 @@
 	<select id="check_email" parameterType="String" resultType="int">
 		select count(*) from mp_member where email = #{email}
 	</select>
+	
+	<!-- 체크 -->
+   <select id="checkPw" resultType="int">
+      select count(*) from mp_member
+      where userId = #{userId} AND
+      userPass = #{userPass}
+   </select>
 	
 </mapper>

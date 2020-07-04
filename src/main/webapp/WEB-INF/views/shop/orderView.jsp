@@ -1,148 +1,285 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<html>
+
+<!DOCTYPE html>
+<html lang="ko">
+
 <head>
-	<title>kubg</title>
-	
-	
-	<style>
-	
-		body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
-		a { color:#05f; text-decoration:none; }
-		a:hover { text-decoration:underline; }
-		
-		h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
-		ul, lo, li { margin:0; padding:0; list-style:none; }
-	
-		/* ---------- */
-		
-		div#root { width:900px; margin:0 auto; }
-		header#header {}
-		nav#nav {}
-		section#container { }
-			section#content { float:right; width:700px; }
-			aside#aside { float:left; width:180px; }
-			section#container::after { content:""; display:block; clear:both; }	
-		footer#footer { background:#eee; padding:20px; }
-		
-		/* ---------- */
-		
-		header#header div#header_box { text-align:center; padding:30px 0; }
-		header#header div#header_box h1 { font-size:50px; }
-		header#header div#header_box h1 a { color:#000; }
-		
-		nav#nav div#nav_box { font-size:14px; padding:10px; text-align:right; }
-		nav#nav div#nav_box li { display:inline-block; margin:0 10px; }
-		nav#nav div#nav_box li a { color:#333; }
-		
-		section#container { }
-		
-		aside#aside h3 { font-size:22px; margin-bottom:20px; text-align:center; }
-		aside#aside li { font-size:16px; text-align:center; }
-		aside#aside li a { color:#000; display:block; padding:10px 0; }
-		aside#aside li a:hover { text-decoration:none; background:#eee; }
-		
-		aside#aside li { position:relative; }
-		aside#aside li:hover { background:#eee; } 		
-		aside#aside li > ul.low { display:none; position:absolute; top:0; left:180px;  }
-		aside#aside li:hover > ul.low { display:block; }
-		aside#aside li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
-		aside#aside li:hover > ul.low li a:hover { background:#fff;}
-		aside#aside li > ul.low li { width:180px; }
-		
-		footer#footer { margin-top:100px; border-radius:50px 50px 0 0; }
-		footer#footer div#footer_box { padding:0 20px; }
-		
-	</style>
-	
-	
-<style>
-/*
-	section#content ul li { display:inline-block; margin:10px; }
-	section#content div.goodsThumb img { width:200px; height:200px; }
-	section#content div.goodsName { padding:10px 0; text-align:center; }
-	section#content div.goodsName a { color:#000; }
-*/
-	.orderInfo { border:5px solid #eee; padding:10px 20px; margin:20px 0;} 
-	.orderInfo span { font-size:20px; font-weight:bold; display:inline-block; width:90px; }
-	
-	.orderView li { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #999; }
-	.orderView li::after { content:""; display:block; clear:both; }
-	
-	.thumb { float:left; width:200px; }
-	.thumb img { width:200px; height:200px; }
-	.gdsInfo { float:right; width:calc(100% - 220px); line-height:2; }
-	.gdsInfo span { font-size:20px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
-</style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+<title>mypage</title>
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+   href="/resources/css/user/order/mypage2.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/main/header-footer.css"
+   type="text/css">
+<link rel="stylesheet" type="text/css"
+   href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+<script type="text/javascript"
+   src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+   function button_event() {
+      if (true) {
+    	  location.href="/shop/orderDeleteViews";
+         delForm.submit();
+        
+      } else {
+         return;
+      }
+   }
+</script>
 
 </head>
+
 <body>
-<div id="root">
-	<header id="header">
-		<div id="header_box">
-			<%@ include file="../include/header.jsp" %>
-		</div>
-	</header>
+   <div class="container-fluid">
+      <%@ include file="../include/header2.jsp"%>
+   </div>
+   <!--container-fluid-->
 
-	<nav id="nav">
-		<div id="nav_box">
-			<%@ include file="../include/nav.jsp" %>
-		</div>
-	</nav>
-	
-	<section id="container">
-		<div id="container_box">
-		
-			<section id="content">
-			
-				<div class="orderInfo">
-					<c:forEach items="${orderView}" var="orderView" varStatus="status">
-						
-						<%-- 첫번째 요소만 출력. 주문 상세 페이지에서 중복되는 부분이므로 모두 출력할 필요 없음 --%>
-						<c:if test="${status.first}">
-							<p><span>수령인</span>${orderView.orderRec}</p>
-							<p><span>주소</span>(${orderView.userAddr1}) ${orderView.userAddr2} ${orderView.userAddr3}</p>
-							<p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
-						</c:if>
-						
-					</c:forEach>
-				</div>
-				
-				<ul class="orderView">
-					<c:forEach items="${orderView}" var="orderView">					
-					<li>
-						<div class="thumb">
-							<img src="${orderView.gdsThumbImg}" />
-						</div>
-						<div class="gdsInfo">
-							<p>
-								<span>상품명</span>${orderView.gdsName}<br />
-								<span>개당 가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.gdsPrice}" /> 원<br />
-								<span>구입 수량</span>${orderView.cartStock} 개<br />
-								<span>최종 가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.gdsPrice * orderView.cartStock}" /> 원                   
-							</p>
-						</div>
-					</li>					
-					</c:forEach>
-				</ul>
-			</section>
-			
-			<aside id="aside">
-				<%@ include file="../include/aside.jsp" %>                                                                                                        
-			</aside>
-			
-		</div>
-	</section>
 
-	<footer id="footer">
-		<div id="footer_box">
-			<%@ include file="../include/footer.jsp" %>
-		</div>		
-	</footer>
+   <div class="container">
+      <div class="row all_wrap">
+         <div class="col-sm-3 col-lg-3">
+            <div class="side_wrap">
+               <h2>마이페이지</h2>
+               <ul class="nav nav-pills nav-stacked">
+                  <li role="presentation"><a href="/shop/cartList">장바구니</a></li>
+                  <li role="presentation" class="active"><a
+                     href="/shop/orderList">주문리스트</a></li>
+                  <li role="presentation"><a href="/member/memberPassChkView">내
+                        정보 수정</a></li>
+                  <li role="presentation"><a href="/member/memberPassChkView">회원
+                        탈퇴</a></li>
+               </ul>
+            </div>
+         </div>
 
-</div>
+
+         <form action="/shop/orderDelete" method="post" id="delForm"
+            name="removefrm">
+
+            <div class="col-sm-9 rightWrap">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h3>주문상세정보</h3>
+                     <c:forEach items="${orderView}" var="orderView"
+                        varStatus="status">
+                        <c:if test="${status.first}">
+                           <div class="topBox">
+                              <div class="orderDate">
+                                 <h4>주문일자</h4>
+                                 <p>
+                                    <span><fmt:formatDate value="${orderView.orderDate}"
+                                          pattern="yyyy-MM-dd" /></span>
+                                 </p>
+                              </div>
+                              <div class="orderNum">
+                                 <h4>주문번호</h4>
+                                 <p>${orderView.orderId}</p>
+                              </div>
+                           </div>
+                        </c:if>
+
+                     </c:forEach>
+
+                     <div class="content_wrap">
+                        <div class="orderTable">
+                           <h4 class="odTitle">주문상품</h4>
+                           <table>
+
+                              <thead>
+                                 <tr>
+                                    <th class="productDescription">상품정보</th>
+                                    <th class="productPrice">상품금액(수량)</th>
+                                    <th class="compayInfo">판매자</th>
+                                    <th class="thPay"></th>
+                                    <th class="thPay"></th>
+                                 </tr>
+                              </thead>
+
+
+                              <tbody>
+                                 <c:forEach items="${orderView}" var="orderView"
+                                    varStatus="status">
+                                    <tr>
+                                       <td class="productDescription">
+                                          <div>
+                                             <span class="productThumb"><img
+                                                src="${orderView.gdsThumbImg}"></span>
+                                             <div class="names">
+
+
+                                                <p class="kategorie">
+                                                   [${orderdetail[status.index].cateName}]</span><span
+                                                      class="companyName">${orderView.gdsName}
+                                                </p>
+
+                                                <p class="option">
+                                                   옵션 <span>그랜드볼룸홀</span>
+                                                </p>
+                                             </div>
+                                          </div>
+                                       </td>
+
+                                       <td class="productPrice">
+                                          <div>${orderView.gdsPrice}</div>
+                                          <div id="gray">(${orderView.cartStock}개)</div>
+                                       </td>
+
+                                       <td class="compayInfo">
+                                          <div>${orderdetail[status.index].comName}</div>
+                                          <div id="gray">02)666-5658</div>
+                                       </td>
+
+                                       <td class="payComplete">
+                                          <div>결제완료</div>
+                                       </td>
+
+                                       <td class="payCancel">
+                                          <div>
+                                             <input type="button" class="btn btn-success btn-cancel"
+                                                data-toggle="modal" value="주문취소" />
+                                          </div>
+                                       </td>
+                                    </tr>
+                                 </c:forEach>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                     <!--content_wrap-->
+
+
+
+                     <h4 class="odTitle">결제정보</h4>
+                     <div class="orderInfo">
+                        <c:forEach items="${orderView}" var="orderView"
+                           varStatus="status">
+                           <c:if test="${status.first}">
+                              <ul class="list-unstyled">
+                                 <li>결제방법<span>카카오페이</span></li>
+
+                                 <li>결제일자<span><fmt:formatDate
+                                          value="${orderView.orderDate}" pattern="yyyy-MM-dd" /></span></li>
+
+
+                              </ul>
+                              <!--orderInfo-->
+                              <div class="orderInfoRight pull-right">
+
+                                 <p>
+                                    결제금액 : <span><fmt:formatNumber pattern="###,###,###"
+                                          value="${orderView.amount}" /> 원</span>
+                                 </p>
+                              </div>
+                           </c:if>
+                        </c:forEach>
+                     </div>
+
+
+                     <h4 class="odTitle">배송지정보</h4>
+
+                     <c:forEach items="${orderView}" var="orderView"
+                        varStatus="status">
+                        <c:if test="${status.first}">
+                           <div class="deliveryInfo">
+                              <div>
+                                 <h5>수령인</h5>
+                                 <p>${orderView.orderRec}</p>
+                              </div>
+                              <div>
+                                 <h5>연락처</h5>
+                                 <p>${orderView.orderPhon}</p>
+                              </div>
+                              <div>
+                                 <h5>배송지</h5>
+                                 <p>${orderView.userAddr1}${orderView.userAddr2}
+                                    ${orderView.userAddr3}</p>
+                              </div>
+                              <div>
+                                 <h5>배송메모</h5>
+                                 <p>${orderView.orderDes}</p>
+                              </div>
+                           </div>
+                        </c:if>
+                     </c:forEach>
+
+
+                  </div>
+                  <!--col-sm-12-->
+               </div>
+               <!--row-->
+            </div>
+            <!--col-sm-9-->
+
+
+         </form>
+      </div>
+      <!--row -->
+   </div>
+   <!--container-->
+
+   <!-- modal -->
+   <div class="modal fade" id="myModal_cancel" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+               <!-- <h4 class="modal-title" id="myModalLabel"></h4> -->
+            </div>
+            <div class="modal-body">주문 취소하시겠습니까?</div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+               <button type="button" class="btn btn-primary btnOk" onclick="button_event();">확인</button>
+               				
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="footer">
+      <%@ include file="../include/footer2.jsp"%>
+   </div>
+
+   <script>
+    // 사이드바
+    $(document).ready(function(){
+      $(".side_wrap li").click(function(){
+        var menu= $(".side_wrap li");
+        menu.removeClass("active");
+        $(this).addClass("active");
+      });
+    })
+
+    // 모달
+    $(document).ready(function(){
+     $(".btn-cancel").click(function(){
+      $("#myModal_cancel").modal({
+        backdrop:"static",
+        keyboard:false
+      });
+     })
+    })
+ </script>
+
 </body>
+
 </html>
